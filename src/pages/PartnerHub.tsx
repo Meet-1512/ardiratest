@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
@@ -171,7 +171,11 @@ export default function PartnerHub() {
     });
   };
 
-  const handleBlur = (e: React.FocusEvent<any>) => {
+  const handleBlur = (
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     const { name } = e.target;
     if (name) {
       validateSequenceUpTo(name, formData);
@@ -236,7 +240,7 @@ export default function PartnerHub() {
         body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
-      let result: any = {};
+      let result: Record<string, unknown> = {};
       const contentType = response.headers.get("content-type");
       if (contentType && contentType.indexOf("application/json") !== -1) {
         result = await response.json();
@@ -248,7 +252,7 @@ export default function PartnerHub() {
 
       if (!response.ok) {
         throw new Error(
-          result.message || result.error || "Failed to submit application",
+          (result.message as string) || (result.error as string) || "Failed to submit application",
         );
       }
 

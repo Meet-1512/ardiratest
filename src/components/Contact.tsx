@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+﻿import { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { RecaptchaBadge } from "@/components/RecaptchaBadge";
@@ -134,7 +134,11 @@ function Contact() {
     });
   };
 
-  const handleBlur = (e: React.FocusEvent<any>) => {
+  const handleBlur = (
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     const { name } = e.target;
     if (name) {
       validateSequenceUpTo(name, formData);
@@ -204,7 +208,7 @@ function Contact() {
         body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
-      let result: any = {};
+      let result: Record<string, unknown> = {};
       const contentType = response.headers.get("content-type");
       if (contentType && contentType.indexOf("application/json") !== -1) {
         result = await response.json();
@@ -214,7 +218,7 @@ function Contact() {
 
       if (!response.ok) {
         throw new Error(
-          result.message || result.error || "Failed to send message",
+          (result.message as string) || (result.error as string) || "Failed to send message",
         );
       }
 
