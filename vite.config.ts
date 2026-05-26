@@ -9,11 +9,7 @@ export default defineConfig({
     host: "::",
     port: 8080,
   },
-  plugins: [
-    react(),
-    tailwindcss(),
-    tsconfigPaths(),
-  ],
+  plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "./src/assets"),

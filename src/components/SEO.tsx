@@ -34,7 +34,9 @@ function removeMetaTag(attr: string, key: string) {
 }
 
 function setCanonical(url: string) {
-  let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  let link = document.querySelector(
+    'link[rel="canonical"]',
+  ) as HTMLLinkElement | null;
   if (link) {
     link.href = url;
   } else {
@@ -101,7 +103,7 @@ export default function SEO({
 
     if (ogImage) {
       setMetaTag("property", "og:image", ogImage);
-      
+
       // Set image dimensions and type
       if (ogImageWidth) {
         setMetaTag("property", "og:image:width", ogImageWidth);
@@ -153,7 +155,21 @@ export default function SEO({
       removeMetaTag("property", "og:type");
       removeCanonical();
     };
-  }, [title, description, keywords, ogTitle, ogDescription, ogUrl, ogImage, ogImageWidth, ogImageHeight, ogImageType, ogLogo, ogType, canonicalUrl]);
+  }, [
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogUrl,
+    ogImage,
+    ogImageWidth,
+    ogImageHeight,
+    ogImageType,
+    ogLogo,
+    ogType,
+    canonicalUrl,
+  ]);
 
   return null;
 }

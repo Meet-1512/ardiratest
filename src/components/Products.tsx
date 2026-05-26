@@ -289,13 +289,33 @@ function Products() {
                   <ChevronLeft size={22} />
                 </button>
 
-                <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1, justifyContent: "center", minWidth: 0 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                    flex: 1,
+                    justifyContent: "center",
+                    minWidth: 0,
+                  }}
+                >
                   <img
                     src={productMeta[activeTab].icon}
                     alt={productMeta[activeTab].name}
-                    style={{ width: 38, height: 38, objectFit: "contain", flexShrink: 0 }}
+                    style={{
+                      width: 38,
+                      height: 38,
+                      objectFit: "contain",
+                      flexShrink: 0,
+                    }}
                   />
-                  <div style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      minWidth: 0,
+                    }}
+                  >
                     <span
                       style={{
                         fontSize: 16,

@@ -12,11 +12,15 @@ function Hero() {
       const hash = href.split("#")[1];
       const targetPath = href.split("#")[0] || "/";
 
-      if (location.pathname === targetPath || (location.pathname === "/" && targetPath === "/")) {
+      if (
+        location.pathname === targetPath ||
+        (location.pathname === "/" && targetPath === "/")
+      ) {
         const element = document.getElementById(hash);
         if (element) {
           const offset = 70;
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+          const elementPosition =
+            element.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: elementPosition, behavior: "smooth" });
         }
       } else {
@@ -34,7 +38,8 @@ function Hero() {
         overflow: "hidden",
         paddingTop: 60,
         paddingBottom: 60,
-        background: "linear-gradient(135deg, #f0fdf4 0%, white 50%, #ecfdf5 100%)",
+        background:
+          "linear-gradient(135deg, #f0fdf4 0%, white 50%, #ecfdf5 100%)",
         textAlign: "center",
         minHeight: "auto",
         display: "flex",
@@ -47,7 +52,8 @@ function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 70% 50% at 50% -5%, rgba(34,197,94,0.12), transparent)",
+          background:
+            "radial-gradient(ellipse 70% 50% at 50% -5%, rgba(34,197,94,0.12), transparent)",
           pointerEvents: "none",
         }}
       />

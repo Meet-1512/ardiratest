@@ -5,7 +5,10 @@ import SEO from "../components/SEO";
 
 export default function NotFound() {
   return (
-    <div className="notfound-page min-h-[75vh] flex flex-col items-center justify-center bg-white text-[#0f172a] font-sans relative overflow-hidden" style={{ paddingLeft: "48px", paddingRight: "48px" }}>
+    <div
+      className="notfound-page min-h-[75vh] flex flex-col items-center justify-center bg-white text-[#0f172a] font-sans relative overflow-hidden"
+      style={{ paddingLeft: "48px", paddingRight: "48px" }}
+    >
       <SEO
         title="404: Page Not Found | Ardira"
         description="The page you are looking for does not exist or has been moved. Return to the Ardira homepage to explore our Salesforce solutions."
@@ -41,7 +44,8 @@ export default function NotFound() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-slate-500 text-base md:text-lg leading-relaxed mb-8 max-w-md mx-auto"
         >
-          The page you're looking for doesn't exist. Let's get you back on track.
+          The page you're looking for doesn't exist. Let's get you back on
+          track.
         </motion.p>
 
         {/* Call to Actions */}

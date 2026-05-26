@@ -91,10 +91,21 @@ export default function PartnerHub() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const validateSequenceUpTo = (fieldName: string, currentData: typeof formData) => {
-    const fieldSequence = ["fullName", "company", "email", "phone", "country", "partnerType", "message"];
+  const validateSequenceUpTo = (
+    fieldName: string,
+    currentData: typeof formData,
+  ) => {
+    const fieldSequence = [
+      "fullName",
+      "company",
+      "email",
+      "phone",
+      "country",
+      "partnerType",
+      "message",
+    ];
     const currentIndex = fieldSequence.indexOf(fieldName);
-    
+
     if (currentIndex === -1) return;
 
     setErrors((prev) => {
@@ -129,7 +140,8 @@ export default function PartnerHub() {
           } else {
             const phoneRegex = /^[0-9]{7,15}$/;
             if (!phoneRegex.test(value)) {
-              errorMsg = "Phone number must contain between 7 and 15 digits only.";
+              errorMsg =
+                "Phone number must contain between 7 and 15 digits only.";
             }
           }
         } else if (fName === "country") {
@@ -159,9 +171,7 @@ export default function PartnerHub() {
     });
   };
 
-  const handleBlur = (
-    e: React.FocusEvent<any>
-  ) => {
+  const handleBlur = (e: React.FocusEvent<any>) => {
     const { name } = e.target;
     if (name) {
       validateSequenceUpTo(name, formData);
@@ -349,9 +359,7 @@ export default function PartnerHub() {
             transition={{ duration: 0.6 }}
             className="mt-8"
           >
-            <div
-              className="relative w-full overflow-hidden mx-auto"
-            >
+            <div className="relative w-full overflow-hidden mx-auto">
               <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-[#f0fdf4] to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-[#f0fdf4] to-transparent z-10 pointer-events-none" />
               <div
@@ -540,7 +548,9 @@ export default function PartnerHub() {
                         placeholder="Full Name"
                       />
                       {errors.fullName && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.fullName}</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {errors.fullName}
+                        </p>
                       )}
                     </div>
                     <div>
@@ -570,7 +580,9 @@ export default function PartnerHub() {
                         placeholder="Company Name"
                       />
                       {errors.company && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.company}</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {errors.company}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -603,7 +615,9 @@ export default function PartnerHub() {
                         placeholder="Business Email"
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.email}</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {errors.email}
+                        </p>
                       )}
                     </div>
                     <div>
@@ -636,7 +650,9 @@ export default function PartnerHub() {
                         placeholder="e.g., 1234567890"
                       />
                       {errors.phone && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.phone}</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {errors.phone}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -661,7 +677,9 @@ export default function PartnerHub() {
                       >
                         <SelectTrigger
                           name="country"
-                          onBlur={() => validateSequenceUpTo("country", formData)}
+                          onBlur={() =>
+                            validateSequenceUpTo("country", formData)
+                          }
                           className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
                             errors.country
                               ? "border-red-500 focus:ring-red-500"
@@ -681,7 +699,9 @@ export default function PartnerHub() {
                         </SelectContent>
                       </Select>
                       {errors.country && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.country}</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {errors.country}
+                        </p>
                       )}
                     </div>
                     <div>
@@ -691,7 +711,10 @@ export default function PartnerHub() {
                       <Select
                         value={formData.partnerType}
                         onValueChange={(value) => {
-                          setFormData((prev) => ({ ...prev, partnerType: value }));
+                          setFormData((prev) => ({
+                            ...prev,
+                            partnerType: value,
+                          }));
                           if (errors.partnerType) {
                             setErrors((prev) => {
                               const copy = { ...prev };
@@ -703,7 +726,9 @@ export default function PartnerHub() {
                       >
                         <SelectTrigger
                           name="partnerType"
-                          onBlur={() => validateSequenceUpTo("partnerType", formData)}
+                          onBlur={() =>
+                            validateSequenceUpTo("partnerType", formData)
+                          }
                           className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
                             errors.partnerType
                               ? "border-red-500 focus:ring-red-500"
@@ -719,7 +744,9 @@ export default function PartnerHub() {
                         </SelectContent>
                       </Select>
                       {errors.partnerType && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.partnerType}</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          {errors.partnerType}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -752,7 +779,9 @@ export default function PartnerHub() {
                       placeholder="Tell us about your business"
                     />
                     {errors.message && (
-                      <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.message}</p>
+                      <p className="text-red-500 text-xs mt-1.5 font-medium">
+                        {errors.message}
+                      </p>
                     )}
                   </div>
                   {submitError && (

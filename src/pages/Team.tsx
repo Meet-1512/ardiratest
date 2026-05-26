@@ -119,7 +119,14 @@ export default function About() {
       {/* Hero */}
       <section className="responsive-section pt-20 pb-20 bg-linear-to-br from-[#f0fdf4] via-white to-[#ecfdf5] relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-5%,rgba(34,197,94,0.12),transparent)] pointer-events-none" />
-        <div style={{ maxWidth: "var(--max-width)", margin: "0 auto", position: "relative", zIndex: 10 }}>
+        <div
+          style={{
+            maxWidth: "var(--max-width)",
+            margin: "0 auto",
+            position: "relative",
+            zIndex: 10,
+          }}
+        >
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: -12 }}
@@ -168,7 +175,8 @@ export default function About() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={ardiraTeam}
                 alt="The Ardira Team"
                 className="w-full rounded-2xl shadow-lg border border-slate-100"
@@ -181,54 +189,61 @@ export default function About() {
       {/* Mission */}
       <section className="responsive-section py-24 bg-[#f8fafc]">
         <div style={{ maxWidth: "var(--max-width)", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "64px", alignItems: "center" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "64px",
+              alignItems: "center",
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-            <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-[#43AF57] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-5">
-              Our Mission
-            </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-display text-[#0f172a] leading-tight mb-6">
-              Making Salesforce Work Harder for You
-            </h2>
-            <p className="text-slate-500 text-lg leading-relaxed mb-6">
-              Ardira was founded on a simple belief: Salesforce is the world's
-              most powerful business platform, and most organizations are only
-              scratching the surface of what it can do.
-            </p>
-            <p className="text-slate-500 text-lg leading-relaxed">
-              Our mission is to extend Salesforce with powerful, native products
-              that help organizations collect better data, gain deeper insights,
-              and act with confidence.
-            </p>
-          </motion.div>
+              <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-[#43AF57] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-5">
+                Our Mission
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold font-display text-[#0f172a] leading-tight mb-6">
+                Making Salesforce Work Harder for You
+              </h2>
+              <p className="text-slate-500 text-lg leading-relaxed mb-6">
+                Ardira was founded on a simple belief: Salesforce is the world's
+                most powerful business platform, and most organizations are only
+                scratching the surface of what it can do.
+              </p>
+              <p className="text-slate-500 text-lg leading-relaxed">
+                Our mission is to extend Salesforce with powerful, native
+                products that help organizations collect better data, gain
+                deeper insights, and act with confidence.
+              </p>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {values.map((v) => (
-                <div
-                  key={v.title}
-                  className="bg-white border border-slate-100 rounded-2xl p-6 hover:border-emerald-200 hover:shadow-sm transition-all"
-                >
-                  <div className="inline-flex p-2.5 rounded-xl bg-emerald-50 mb-4">
-                    <v.icon size={20} className="text-[#43AF57]" />
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {values.map((v) => (
+                  <div
+                    key={v.title}
+                    className="bg-white border border-slate-100 rounded-2xl p-6 hover:border-emerald-200 hover:shadow-sm transition-all"
+                  >
+                    <div className="inline-flex p-2.5 rounded-xl bg-emerald-50 mb-4">
+                      <v.icon size={20} className="text-[#43AF57]" />
+                    </div>
+                    <h3 className="font-bold text-[#0f172a] mb-2">{v.title}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                      {v.desc}
+                    </p>
                   </div>
-                  <h3 className="font-bold text-[#0f172a] mb-2">{v.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
-                    {v.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -266,7 +281,8 @@ export default function About() {
                 className="flex flex-col items-center text-center group"
               >
                 {member.image && (
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     src={member.image}
                     alt={member.name}
                     className={`w-50 h-54 object-cover rounded-lg mb-5 shadow-sm transition-all duration-300 group-hover:shadow-lg`}
@@ -313,7 +329,8 @@ export default function About() {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="flex flex-col items-center text-center group"
               >
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   src={member.image}
                   alt={member.name}
                   className={`w-50 h-54 object-cover rounded-lg mb-5 shadow-sm transition-all duration-300 group-hover:shadow-lg`}

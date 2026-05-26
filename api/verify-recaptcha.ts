@@ -14,19 +14,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+    const response = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secret: SECRET_KEY,
+          response: token,
+        }).toString(),
       },
-      body: new URLSearchParams({
-        secret: SECRET_KEY,
-        response: token,
-      }).toString(),
-    });
+    );
 
     if (!response.ok) {
-      return res.status(500).json({ error: "reCAPTCHA verification request failed" });
+      return res
+        .status(500)
+        .json({ error: "reCAPTCHA verification request failed" });
     }
 
     const data = await response.json();
@@ -63,6 +68,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   } catch (error) {
     console.error("reCAPTCHA verification error:", error);
-    return res.status(500).json({ error: "Internal server error during reCAPTCHA verification" });
+    return res
+      .status(500)
+      .json({ error: "Internal server error during reCAPTCHA verification" });
   }
 }

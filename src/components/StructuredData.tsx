@@ -40,9 +40,7 @@ const ORGANIZATION_SCHEMA = {
     contactType: "sales",
     availableLanguage: "English",
   },
-  sameAs: [
-    "https://www.linkedin.com/company/ardira",
-  ],
+  sameAs: ["https://www.linkedin.com/company/ardira"],
 };
 
 const WEBSITE_SCHEMA = {

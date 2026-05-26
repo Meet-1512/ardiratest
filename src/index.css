@@ -283,7 +283,7 @@ html body[data-scroll-locked] {
   background: var(--primary-green);
   color: #fff !important;
   border-radius: 7px;
-  box-shadow: 0 3px 10px rgba(57,180,74,0.25);
+  box-shadow: 0 3px 10px rgba(57, 180, 74, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -294,7 +294,7 @@ html body[data-scroll-locked] {
 .btn-demo:hover {
   transform: translateY(-2px);
   background: var(--primary-green-dark) !important;
-  box-shadow: 0 6px 20px rgba(57,180,74,0.35) !important;
+  box-shadow: 0 6px 20px rgba(57, 180, 74, 0.35) !important;
 }
 @media (max-width: 768px) {
   .btn-demo {
@@ -366,7 +366,9 @@ html body[data-scroll-locked] {
   padding: 40px 0;
   border-bottom: 1px solid var(--border-color);
   opacity: 0.3;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
   transform: translateY(20px);
 }
 
@@ -378,7 +380,6 @@ html body[data-scroll-locked] {
 .product-scroll-section:last-child {
   border-bottom: none;
 }
-
 
 /* Feature list checkmarks */
 .feature-list {

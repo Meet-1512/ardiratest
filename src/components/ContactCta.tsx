@@ -18,7 +18,9 @@ export default function ContactCta({
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const handleButtonClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
+  const handleButtonClick = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLDivElement>,
+  ) => {
     if (!buttonLink) return;
 
     // Handle hash links (e.g., "/#contact" or "#contact")
@@ -26,13 +28,14 @@ export default function ContactCta({
       e.preventDefault();
       const [path, hash] = buttonLink.split("#");
       const targetPath = path || pathname;
-      
+
       // If target path is the current page, use smooth scroll; otherwise navigate
       if (targetPath === pathname) {
         const element = document.getElementById(hash);
         if (element) {
           const offset = 70;
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+          const elementPosition =
+            element.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: elementPosition, behavior: "smooth" });
         }
       } else {

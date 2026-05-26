@@ -43,7 +43,7 @@ function Contact() {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    
+
     setErrors((prev) => {
       const copy = { ...prev };
       delete copy[name];
@@ -52,16 +52,29 @@ function Contact() {
 
     if (name === "phone") {
       // Restrict input to digits only
-      setFormData((prev) => ({ ...prev, [name]: value.replace(/[^0-9]/g, "") }));
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value.replace(/[^0-9]/g, ""),
+      }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  const validateSequenceUpTo = (fieldName: string, currentData: typeof formData) => {
-    const fieldSequence = ["name", "email", "phone", "company", "product", "message"];
+  const validateSequenceUpTo = (
+    fieldName: string,
+    currentData: typeof formData,
+  ) => {
+    const fieldSequence = [
+      "name",
+      "email",
+      "phone",
+      "company",
+      "product",
+      "message",
+    ];
     const currentIndex = fieldSequence.indexOf(fieldName);
-    
+
     if (currentIndex === -1) return;
 
     setErrors((prev) => {
@@ -92,7 +105,8 @@ function Contact() {
           } else {
             const phoneRegex = /^[0-9]{7,15}$/;
             if (!phoneRegex.test(value)) {
-              errorMsg = "Phone number must contain between 7 and 15 digits only.";
+              errorMsg =
+                "Phone number must contain between 7 and 15 digits only.";
             }
           }
         } else if (fName === "company") {
@@ -120,9 +134,7 @@ function Contact() {
     });
   };
 
-  const handleBlur = (
-    e: React.FocusEvent<any>
-  ) => {
+  const handleBlur = (e: React.FocusEvent<any>) => {
     const { name } = e.target;
     if (name) {
       validateSequenceUpTo(name, formData);
@@ -151,7 +163,8 @@ function Contact() {
     } else {
       const phoneRegex = /^[0-9]{7,15}$/;
       if (!phoneRegex.test(formData.phone)) {
-        newErrors.phone = "Phone number must contain between 7 and 15 digits only.";
+        newErrors.phone =
+          "Phone number must contain between 7 and 15 digits only.";
       }
     }
 
@@ -200,7 +213,9 @@ function Contact() {
       }
 
       if (!response.ok) {
-        throw new Error(result.message || result.error || "Failed to send message");
+        throw new Error(
+          result.message || result.error || "Failed to send message",
+        );
       }
 
       setSubmitted(true);
@@ -297,7 +312,10 @@ function Contact() {
               Contact our team to schedule a demo, learn more about our
               products, or simply ask a question. We respond promptly.
             </p>
-            <div className="contact-info-items" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div
+              className="contact-info-items"
+              style={{ display: "flex", flexDirection: "column", gap: 12 }}
+            >
               {[
                 {
                   icon: (
@@ -526,7 +544,14 @@ function Contact() {
                       }}
                     />
                     {errors.name && (
-                      <span style={{ color: "#ef4444", fontSize: 11, fontWeight: 500, alignSelf: "flex-start" }}>
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: 11,
+                          fontWeight: 500,
+                          alignSelf: "flex-start",
+                        }}
+                      >
                         {errors.name}
                       </span>
                     )}
@@ -558,7 +583,14 @@ function Contact() {
                       }}
                     />
                     {errors.email && (
-                      <span style={{ color: "#ef4444", fontSize: 11, fontWeight: 500, alignSelf: "flex-start" }}>
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: 11,
+                          fontWeight: 500,
+                          alignSelf: "flex-start",
+                        }}
+                      >
                         {errors.email}
                       </span>
                     )}
@@ -600,7 +632,14 @@ function Contact() {
                       }}
                     />
                     {errors.phone && (
-                      <span style={{ color: "#ef4444", fontSize: 11, fontWeight: 500, alignSelf: "flex-start" }}>
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: 11,
+                          fontWeight: 500,
+                          alignSelf: "flex-start",
+                        }}
+                      >
                         {errors.phone}
                       </span>
                     )}
@@ -632,7 +671,14 @@ function Contact() {
                       }}
                     />
                     {errors.company && (
-                      <span style={{ color: "#ef4444", fontSize: 11, fontWeight: 500, alignSelf: "flex-start" }}>
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: 11,
+                          fontWeight: 500,
+                          alignSelf: "flex-start",
+                        }}
+                      >
                         {errors.company}
                       </span>
                     )}
@@ -649,7 +695,8 @@ function Contact() {
                       color: "var(--text-primary)",
                     }}
                   >
-                    Product of Interest <span style={{ color: "#ef4444" }}>*</span>
+                    Product of Interest{" "}
+                    <span style={{ color: "#ef4444" }}>*</span>
                   </label>
                   <Select
                     value={formData.product}
@@ -693,7 +740,14 @@ function Contact() {
                     </SelectContent>
                   </Select>
                   {errors.product && (
-                    <span style={{ color: "#ef4444", fontSize: 11, fontWeight: 500, alignSelf: "flex-start" }}>
+                    <span
+                      style={{
+                        color: "#ef4444",
+                        fontSize: 11,
+                        fontWeight: 500,
+                        alignSelf: "flex-start",
+                      }}
+                    >
                       {errors.product}
                     </span>
                   )}
@@ -727,7 +781,14 @@ function Contact() {
                     }}
                   />
                   {errors.message && (
-                    <span style={{ color: "#ef4444", fontSize: 11, fontWeight: 500, alignSelf: "flex-start" }}>
+                    <span
+                      style={{
+                        color: "#ef4444",
+                        fontSize: 11,
+                        fontWeight: 500,
+                        alignSelf: "flex-start",
+                      }}
+                    >
                       {errors.message}
                     </span>
                   )}

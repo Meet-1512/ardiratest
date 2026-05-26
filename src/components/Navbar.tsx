@@ -65,11 +65,7 @@ function Navbar() {
           }}
         >
           <Link to="/" onClick={handleLinkClick}>
-            <img
-              src={ArdiraLogo}
-              alt="Ardira"
-              className="nav-logo"
-            />
+            <img src={ArdiraLogo} alt="Ardira" className="nav-logo" />
           </Link>
           <ul className="nav-menu">
             <li className="nav-hide-mobile">
@@ -177,7 +173,11 @@ function Navbar() {
           >
             Why Native
           </Link>
-          <Link to="/team" className="mobile-nav-link" onClick={handleLinkClick}>
+          <Link
+            to="/team"
+            className="mobile-nav-link"
+            onClick={handleLinkClick}
+          >
             Company
           </Link>
           <Link

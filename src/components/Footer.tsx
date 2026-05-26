@@ -280,8 +280,9 @@ function Footer() {
         <p
           style={{ fontSize: 12.5, color: "rgba(255,255,255,0.35)", margin: 0 }}
         >
-          &copy; {new Date().getFullYear()} Ardira Corporation. All rights reserved. Salesforce and
-          AppExchange are trademarks of Salesforce, Inc.
+          &copy; {new Date().getFullYear()} Ardira Corporation. All rights
+          reserved. Salesforce and AppExchange are trademarks of Salesforce,
+          Inc.
         </p>
         <div
           className="footer-links footer-links-col"
