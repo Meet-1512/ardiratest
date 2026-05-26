@@ -246,10 +246,7 @@ export default function PartnerHub() {
         result = await response.json();
       } else if (!response.ok) {
         throw new Error(
-          `Server execution failed (Status ${response.status}). If testing locally, ensure you are using Vercel Dev.`,
-        );
-      }
-
+            `Server execution failed (Status ${response.status}).`,
       if (!response.ok) {
         throw new Error(
           (result.message as string) || (result.error as string) || "Failed to submit application",
