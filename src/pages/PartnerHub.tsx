@@ -245,8 +245,9 @@ export default function PartnerHub() {
       if (contentType && contentType.indexOf("application/json") !== -1) {
         result = await response.json();
       } else if (!response.ok) {
-        throw new Error(
-            `Server execution failed (Status ${response.status}).`,
+        throw new Error(`Server execution failed (Status ${response.status}).`);
+      }
+
       if (!response.ok) {
         throw new Error(
           (result.message as string) || (result.error as string) || "Failed to submit application",
