@@ -195,17 +195,29 @@ function Contact() {
 
     try {
       // Get reCAPTCHA token
-      let recaptchaToken = "";
-      try {
-        recaptchaToken = await executeRecaptcha("contact_form");
-      } catch {
-        throw new Error("reCAPTCHA verification failed. Please try again.");
-      }
+      const recaptchaToken = await executeRecaptcha("contact_form");
 
-      const response = await fetch("/api/contact.php", {
+      const LEAD_SUBMIT_URL =
+        import.meta.env.VITE_LEAD_SUBMIT_URL ||
+        "https://wcwdswvijpaovpxmviyh.supabase.co/functions/v1/submit-lead";
+      const SITE_ID = import.meta.env.VITE_SITE_ID || "Ardira";
+
+      const payload = {
+        site_id: SITE_ID,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        product: formData.product,
+        message: formData.message,
+        source_url: window.location.href,
+        recaptchaToken,
+      };
+
+      const response = await fetch(LEAD_SUBMIT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, recaptchaToken }),
+        body: JSON.stringify(payload),
       });
 
       let result: Record<string, unknown> = {};
