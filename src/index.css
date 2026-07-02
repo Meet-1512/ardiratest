@@ -13,7 +13,7 @@ html body[data-scroll-locked] {
    reCAPTCHA Badge — Collapsible Hover-to-Reveal Design
    ───────────────────────────────────────────────────────── */
 
-/* Base: fixed bottom-left, collapsed to show only the shield icon */
+/* Base: fixed bottom-left, collapsed badge that expands on hover */
 .grecaptcha-badge {
   visibility: visible !important;
   opacity: 1 !important;
@@ -30,19 +30,19 @@ html body[data-scroll-locked] {
   background: transparent !important;
   border: none !important;
   cursor: pointer !important;
-  transform: scale(0.85) !important;
-  transform-origin: bottom left !important;
+  transform: none !important;
   border-radius: 0 8px 8px 0 !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  transition: width 0.25s ease, box-shadow 0.2s ease !important;
 }
 
-/* Ensure the iframe stays aligned to the right inside the collapsed/expanded container.
-   Since the shield is on the right-hand side of Google's 256px wide iframe, aligning it
-   to the right allows it to be visible in the 70px wide collapsed state. */
+/* Ensure the iframe stays aligned to the left inside the collapsed/expanded container.
+   The shield icon is on the left side of Google's default badge, so left-align it to
+   show only the icon when the container is collapsed. */
 .grecaptcha-badge iframe {
   position: absolute !important;
-  right: 0 !important;
+  left: 0 !important;
+  right: auto !important;
   top: 0 !important;
   width: 256px !important;
   min-width: 256px !important;
@@ -50,8 +50,7 @@ html body[data-scroll-locked] {
   border: none !important;
 }
 
-/* Invisible click-target overlay — captures taps over the icon area
-   (standard clicks inside the cross-origin Google iframe do not bubble). */
+/* Invisible click-target overlay — capture taps on the badge icon area. */
 .grecaptcha-badge::before {
   content: "";
   position: absolute;
@@ -63,10 +62,34 @@ html body[data-scroll-locked] {
   cursor: pointer;
 }
 
-/* Desktop hover: expand to reveal the Privacy/Terms text */
+/* Desktop hover: expand to reveal the protected by reCAPTCHA text */
 @media (hover: hover) {
   .grecaptcha-badge:hover {
     width: 256px !important;
+  }
+  .grecaptcha-badge:hover::before {
+    width: 256px !important;
+  }
+}
+
+/* Mobile: allow tap expand via JS — keep compact on small screens */
+@media (max-width: 480px) {
+  .grecaptcha-badge {
+    left: 0 !important;
+    bottom: 12px !important;
+    width: 70px !important;
+    height: 56px !important;
+    transform: none !important;
+  }
+
+  .grecaptcha-badge::before {
+    width: 70px;
+  }
+
+  .grecaptcha-badge iframe {
+    height: 56px !important;
+    width: 256px !important;
+    min-width: 256px !important;
   }
 }
 
@@ -75,9 +98,7 @@ html body[data-scroll-locked] {
   width: 256px !important;
 }
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
+:root {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-border: hsl(var(--border));

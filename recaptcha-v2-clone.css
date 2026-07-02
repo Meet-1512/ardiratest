@@ -1,0 +1,277 @@
+:root {
+  --rc-bg: #f9f9f9;
+  --rc-border: #d3d3d3;
+  --rc-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.08);
+  --rc-text: rgba(0, 0, 0, 0.9);
+  --rc-muted: #555555;
+  --rc-link: #555555;
+  --rc-link-hover: #000000;
+  --rc-checkbox-bg: #ffffff;
+  --rc-checkbox-border: #c1c1c1;
+  --rc-checkbox-border-hover: #b2b2b2;
+  --rc-checkbox-checked: #009a49;
+  --rc-brand-svg: #555555;
+}
+
+.recaptcha-card[data-theme='dark'] {
+  --rc-bg: #222222;
+  --rc-border: #484848;
+  --rc-text: #ffffff;
+  --rc-muted: #a6a6a6;
+  --rc-link: #a6a6a6;
+  --rc-link-hover: #ffffff;
+  --rc-checkbox-bg: #222222;
+  --rc-checkbox-border: #555555;
+  --rc-checkbox-border-hover: #a6a6a6;
+  --rc-checkbox-checked: #4caf50;
+  --rc-brand-svg: #a6a6a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #f2f4f8;
+  color: #111;
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+}
+
+.widget-demo {
+  display: grid;
+  gap: 18px;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.widget-header h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.theme-switcher button {
+  border: 1px solid #c5c5c5;
+  background: white;
+  color: #111;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.theme-switcher button:hover {
+  background: #f3f3f3;
+  transform: translateY(-1px);
+}
+
+.recaptcha-card {
+  width: 304px;
+  height: 78px;
+  border-radius: 3px;
+  box-shadow: var(--rc-shadow);
+  border: 1px solid var(--rc-border);
+  background: var(--rc-bg);
+  color: var(--rc-text);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.checkbox-btn {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.checkbox-shell {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 2px;
+  border: 2px solid var(--rc-checkbox-border);
+  background: var(--rc-checkbox-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.checkbox-btn:hover .checkbox-shell,
+.checkbox-btn:focus-visible .checkbox-shell {
+  border-color: var(--rc-checkbox-border-hover);
+}
+
+.checkbox-shell .spinner,
+.checkbox-shell .checkmark {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+}
+
+.checkbox-shell .spinner {
+  border: 2px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.checkbox-btn.loading .spinner {
+  opacity: 1;
+}
+
+.checkbox-btn.checked .checkbox-shell {
+  border-color: var(--rc-checkbox-checked);
+  background: var(--rc-checkbox-checked);
+}
+
+.checkbox-btn.checked .checkmark {
+  opacity: 1;
+  animation: draw-check 0.28s ease forwards;
+}
+
+.label-text {
+  margin-left: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.brand-panel {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+  align-items: center;
+  text-align: right;
+}
+
+.brand-logo {
+  color: var(--rc-brand-svg);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.brand-name {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--rc-muted);
+}
+
+.brand-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8px;
+  color: var(--rc-link);
+}
+
+.brand-links a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.brand-links a:hover {
+  color: var(--rc-link-hover);
+  text-decoration: underline;
+}
+
+.brand-links span {
+  color: var(--rc-muted);
+}
+
+.note {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 350px) {
+  .recaptcha-card {
+    width: 164px;
+    height: 144px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .checkbox-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .label-text {
+    margin-left: 0;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+
+  .brand-panel {
+    justify-items: center;
+    text-align: center;
+    margin-top: auto;
+  }
+
+  .brand-links {
+    justify-content: center;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes draw-check {
+  0% {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkbox-shell .checkmark path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+}
