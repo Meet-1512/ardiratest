@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
+const SITE_KEY = import.meta.env.ARDIRA_reCAPTCHA_Site || "";
 
 declare global {
   interface Window {
