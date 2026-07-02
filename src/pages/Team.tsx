@@ -176,7 +176,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <img
-                loading="lazy"
+                loading="eager"
                 src={ardiraTeam}
                 alt="The Ardira Team"
                 className="w-full rounded-2xl shadow-lg border border-slate-100"

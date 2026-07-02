@@ -300,6 +300,7 @@ function Products() {
                   }}
                 >
                   <img
+                    loading="eager"
                     src={productMeta[activeTab].icon}
                     alt={productMeta[activeTab].name}
                     style={{
@@ -409,6 +410,7 @@ function Products() {
                       style={{ display: "flex", alignItems: "center", gap: 12 }}
                     >
                       <img
+                        loading="eager"
                         src={productMeta[key].icon}
                         alt={productMeta[key].name}
                         style={{ width: 32, height: 32, objectFit: "contain" }}
@@ -452,6 +454,8 @@ function Products() {
                   style={{ animation: "fadeIn 0.4s ease", flex: 1 }}
                 >
                   <img
+                    loading="eager"
+                    fetchpriority="high"
                     src={products[activeTab].image}
                     alt={productMeta[activeTab].name}
                     style={{
