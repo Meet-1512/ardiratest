@@ -25,7 +25,7 @@ const inputStyle: React.CSSProperties = {
 };
 
 function Contact() {
-  const { executeRecaptcha } = useRecaptcha();
+  const { loadRecaptcha, executeRecaptcha } = useRecaptcha();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -539,6 +539,7 @@ function Contact() {
                       placeholder="Your name"
                       value={formData.name}
                       onChange={handleChange}
+                      onFocus={loadRecaptcha}
                       onBlur={handleBlur}
                       style={{
                         ...inputStyle,
@@ -578,6 +579,7 @@ function Contact() {
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={handleChange}
+                      onFocus={loadRecaptcha}
                       onBlur={handleBlur}
                       style={{
                         ...inputStyle,
@@ -627,6 +629,7 @@ function Contact() {
                       placeholder="e.g., 1234567890"
                       value={formData.phone}
                       onChange={handleChange}
+                      onFocus={loadRecaptcha}
                       onBlur={handleBlur}
                       style={{
                         ...inputStyle,
@@ -666,6 +669,7 @@ function Contact() {
                       placeholder="Your company"
                       value={formData.company}
                       onChange={handleChange}
+                      onFocus={loadRecaptcha}
                       onBlur={handleBlur}
                       style={{
                         ...inputStyle,
@@ -774,6 +778,7 @@ function Contact() {
                     placeholder="How can we help?"
                     value={formData.message}
                     onChange={handleChange}
+                    onFocus={loadRecaptcha}
                     onBlur={handleBlur}
                     style={{
                       ...inputStyle,

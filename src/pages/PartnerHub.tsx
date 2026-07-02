@@ -76,7 +76,7 @@ const trustedPartners = [
 ];
 
 export default function PartnerHub() {
-  const { executeRecaptcha } = useRecaptcha();
+  const { loadRecaptcha, executeRecaptcha } = useRecaptcha();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -541,12 +541,12 @@ export default function PartnerHub() {
                             });
                           }
                         }}
+                        onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
-                          errors.fullName
-                            ? "border-red-500 focus:ring-red-500"
-                            : "border-slate-200 focus:ring-emerald-500"
-                        }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.fullName
+                          ? "border-red-500 focus:ring-red-500"
+                          : "border-slate-200 focus:ring-emerald-500"
+                          }`}
                         placeholder="Full Name"
                       />
                       {errors.fullName && (
@@ -573,12 +573,12 @@ export default function PartnerHub() {
                             });
                           }
                         }}
+                        onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
-                          errors.company
-                            ? "border-red-500 focus:ring-red-500"
-                            : "border-slate-200 focus:ring-emerald-500"
-                        }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.company
+                          ? "border-red-500 focus:ring-red-500"
+                          : "border-slate-200 focus:ring-emerald-500"
+                          }`}
                         placeholder="Company Name"
                       />
                       {errors.company && (
@@ -608,12 +608,12 @@ export default function PartnerHub() {
                             });
                           }
                         }}
+                        onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
-                          errors.email
-                            ? "border-red-500 focus:ring-red-500"
-                            : "border-slate-200 focus:ring-emerald-500"
-                        }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.email
+                          ? "border-red-500 focus:ring-red-500"
+                          : "border-slate-200 focus:ring-emerald-500"
+                          }`}
                         placeholder="Business Email"
                       />
                       {errors.email && (
@@ -643,12 +643,12 @@ export default function PartnerHub() {
                             });
                           }
                         }}
+                        onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
-                          errors.phone
-                            ? "border-red-500 focus:ring-red-500"
-                            : "border-slate-200 focus:ring-emerald-500"
-                        }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.phone
+                          ? "border-red-500 focus:ring-red-500"
+                          : "border-slate-200 focus:ring-emerald-500"
+                          }`}
                         placeholder="e.g., 1234567890"
                       />
                       {errors.phone && (
@@ -682,11 +682,10 @@ export default function PartnerHub() {
                           onBlur={() =>
                             validateSequenceUpTo("country", formData)
                           }
-                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
-                            errors.country
-                              ? "border-red-500 focus:ring-red-500"
-                              : "border-slate-200 focus:ring-emerald-500"
-                          }`}
+                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.country
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-slate-200 focus:ring-emerald-500"
+                            }`}
                         >
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
@@ -731,11 +730,10 @@ export default function PartnerHub() {
                           onBlur={() =>
                             validateSequenceUpTo("partnerType", formData)
                           }
-                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
-                            errors.partnerType
-                              ? "border-red-500 focus:ring-red-500"
-                              : "border-slate-200 focus:ring-emerald-500"
-                          }`}
+                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.partnerType
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-slate-200 focus:ring-emerald-500"
+                            }`}
                         >
                           <SelectValue placeholder="Partnership Type" />
                         </SelectTrigger>
@@ -772,12 +770,12 @@ export default function PartnerHub() {
                           });
                         }
                       }}
+                      onFocus={loadRecaptcha}
                       onBlur={handleBlur}
-                      className={`w-full px-4 py-3 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none ${
-                        errors.message
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-slate-200 focus:ring-emerald-500"
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none ${errors.message
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-slate-200 focus:ring-emerald-500"
+                        }`}
                       placeholder="Tell us about your business"
                     />
                     {errors.message && (
