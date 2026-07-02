@@ -6,8 +6,11 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import RobotsManager from "./components/RobotsManager";
+import CanonicalManager from "./components/CanonicalManager";
 import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -76,29 +79,33 @@ if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div
-        style={{
-          width: "100%",
-          margin: 0,
-          background: "#fff",
-          minHeight: "100vh",
-          position: "relative",
-        }}
-      >
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-use" element={<TermsOfService />} />
-          <Route path="/partner-hub" element={<PartnerHub />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <RobotsManager />
+        <CanonicalManager />
+        <div
+          style={{
+            width: "100%",
+            margin: 0,
+            background: "#fff",
+            minHeight: "100vh",
+            position: "relative",
+          }}
+        >
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfService />} />
+            <Route path="/partner-hub" element={<PartnerHub />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

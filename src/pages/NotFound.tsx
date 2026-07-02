@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Home, ArrowLeft } from "lucide-react";
-import SEO from "../components/SEO";
+import PageSeo from "../components/PageSeo";
 
 export default function NotFound() {
   return (
@@ -9,13 +9,15 @@ export default function NotFound() {
       className="notfound-page min-h-[75vh] flex flex-col items-center justify-center bg-white text-[#0f172a] font-sans relative overflow-hidden"
       style={{ paddingLeft: "48px", paddingRight: "48px" }}
     >
-      <SEO
+      <PageSeo
         title="404: Page Not Found | Ardira"
         description="The page you are looking for does not exist or has been moved. Return to the Ardira homepage to explore our Salesforce solutions."
-        keywords="404, page not found, Ardira"
-        ogTitle="404: Page Not Found - Ardira"
-        ogDescription="The page you are looking for does not exist."
-        ogUrl="https://ardira.com/404"
+        path="/404"
+        noIndex={true}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Page Not Found", path: "/404" },
+        ]}
       />
 
       {/* Background glowing aura */}

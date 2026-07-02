@@ -6,7 +6,7 @@ import Products from "../components/Products";
 import Stats from "../components/Stats";
 import Features from "../components/Features";
 import Contact from "../components/Contact";
-import SEO from "../components/SEO";
+import PageSeo from "../components/PageSeo";
 import StructuredData from "../components/StructuredData";
 
 function Home() {
@@ -33,19 +33,13 @@ function Home() {
 
   return (
     <>
-      <SEO
+      <PageSeo
         title="Ardira | 100% Native Salesforce Applications"
         description="Ardira builds 100% Salesforce-native applications with no integrations, ensuring data security and native performance on the Salesforce platform."
+        path="/"
         keywords="Salesforce native apps, Salesforce applications, SurveyVista, RelationshipVista, native Salesforce"
-        ogTitle="Ardira — 100% Native Salesforce Applications"
-        ogDescription="Enterprise-grade, 100% native Salesforce products. No integrations. No data leaks."
-        ogUrl="https://ardira.com"
         ogImage="https://ardira.com/ArdiraLogo.webp"
-        ogImageWidth="512"
-        ogImageHeight="512"
-        ogImageType="image/webp"
-        ogLogo="https://ardira.com/ArdiraLogo.webp"
-        ogType="website"
+        breadcrumbs={[{ name: "Home", path: "/" }]}
       />
       <StructuredData type="Organization" />
       <StructuredData type="WebSite" />
