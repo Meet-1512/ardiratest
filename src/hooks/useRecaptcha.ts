@@ -23,15 +23,24 @@ let scriptLoadPromise: Promise<void> | null = null;
  * Subsequent calls return the same promise (idempotent).
  */
 function loadRecaptchaScript(): Promise<void> {
-  if (scriptLoadPromise) return scriptLoadPromise;
+  console.info("useRecaptcha: loadRecaptchaScript called. Site Key:", SITE_KEY);
+  if (!SITE_KEY) {
+    console.warn("useRecaptcha: Site Key is empty! Make sure RECAPTCHA_SITE_KEY is defined in .env and envPrefix is configured in vite.config.ts.");
+  }
+
+  if (scriptLoadPromise) {
+    console.info("useRecaptcha: scriptLoadPromise already exists, returning existing promise.");
+    return scriptLoadPromise;
+  }
 
   scriptLoadPromise = new Promise<void>((resolve, reject) => {
-    // If grecaptcha is already available (e.g. from a previous session/HMR), skip injection.
     if (window.grecaptcha) {
+      console.info("useRecaptcha: window.grecaptcha already exists, resolving ready.");
       window.grecaptcha.ready(() => resolve());
       return;
     }
 
+    console.info("useRecaptcha: Creating script tag for reCAPTCHA...");
     const script = document.createElement("script");
     script.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
     script.async = true;
@@ -39,11 +48,15 @@ function loadRecaptchaScript(): Promise<void> {
     script.id = "recaptcha-v3-script";
 
     script.onload = () => {
-      // grecaptcha.ready fires when the library is fully initialised.
-      window.grecaptcha.ready(() => resolve());
+      console.info("useRecaptcha: Script loaded successfully. Waiting for grecaptcha.ready...");
+      window.grecaptcha.ready(() => {
+        console.info("useRecaptcha: grecaptcha.ready fired.");
+        resolve();
+      });
     };
 
-    script.onerror = () => {
+    script.onerror = (err) => {
+      console.error("useRecaptcha: Script failed to load:", err);
       scriptLoadPromise = null; // allow retry on next call
       reject(new Error("Failed to load reCAPTCHA script"));
     };

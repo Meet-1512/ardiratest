@@ -9,6 +9,7 @@ export default defineConfig({
     host: "::",
     port: 8080,
   },
+  envPrefix: ["VITE_", "RECAPTCHA_"],
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {

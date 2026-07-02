@@ -23,7 +23,7 @@ html body[data-scroll-locked] {
   right: auto !important;
   z-index: 9999 !important;
   width: 70px !important;
-  height: auto !important;
+  height: 60px !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
@@ -35,6 +35,19 @@ html body[data-scroll-locked] {
   border-radius: 0 8px 8px 0 !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Ensure the iframe stays aligned to the right inside the collapsed/expanded container.
+   Since the shield is on the right-hand side of Google's 256px wide iframe, aligning it
+   to the right allows it to be visible in the 70px wide collapsed state. */
+.grecaptcha-badge iframe {
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: 256px !important;
+  min-width: 256px !important;
+  height: 60px !important;
+  border: none !important;
 }
 
 /* Invisible click-target overlay — captures taps over the icon area
