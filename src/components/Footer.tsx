@@ -37,7 +37,7 @@ function Footer() {
                 style={{ height: 40, width: "auto", display: "block" }}
               />
             </Link>
-          </div>{" "}
+          </div>
           <p
             style={{
               fontSize: 13.5,
