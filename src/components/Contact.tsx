@@ -1,4 +1,4 @@
-﻿import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { RecaptchaBadge } from "@/components/RecaptchaBadge";
@@ -25,7 +25,7 @@ const inputStyle: React.CSSProperties = {
 };
 
 function Contact() {
-  const executeRecaptcha = useRecaptcha();
+  const { executeRecaptcha } = useRecaptcha();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({

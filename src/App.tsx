@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { useRecaptcha } from "./hooks/useRecaptcha";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RobotsManager from "./components/RobotsManager";
@@ -78,6 +79,43 @@ if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
 }
 
 function App() {
+  const { loadRecaptcha } = useRecaptcha();
+
+  useEffect(() => {
+    // ── Lazy-load reCAPTCHA script 5 s after page load ──
+    const timer = setTimeout(() => {
+      loadRecaptcha();
+    }, 5000);
+
+    // ── Mobile tap-to-toggle for the reCAPTCHA badge ──
+    // Only attach on coarse-pointer (touch) devices; fine-pointer devices
+    // use the CSS :hover rule instead.
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    if (!isCoarsePointer) return () => clearTimeout(timer);
+
+    function handleTap(e: MouseEvent | TouchEvent) {
+      const badge = document.querySelector(
+        ".grecaptcha-badge",
+      ) as HTMLElement | null;
+      if (!badge) return;
+
+      if (badge.contains(e.target as Node)) {
+        badge.classList.toggle("is-open");
+      } else {
+        badge.classList.remove("is-open");
+      }
+    }
+
+    document.addEventListener("click", handleTap, true);
+    document.addEventListener("touchstart", handleTap, true);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", handleTap, true);
+      document.removeEventListener("touchstart", handleTap, true);
+    };
+  }, [loadRecaptcha]);
+
   return (
     <HelmetProvider>
       <Router>

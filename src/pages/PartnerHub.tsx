@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
@@ -76,7 +76,7 @@ const trustedPartners = [
 ];
 
 export default function PartnerHub() {
-  const executeRecaptcha = useRecaptcha();
+  const { executeRecaptcha } = useRecaptcha();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
