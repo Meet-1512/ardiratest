@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import SEO from "../components/SEO";
-import StructuredData from "../components/StructuredData";
+import PageSeo from "../components/PageSeo";
 import {
   CheckCircle,
   Send,
@@ -285,24 +284,12 @@ export default function PartnerHub() {
       className="min-h-screen bg-gradient-to-br from-[#f0fdf4] via-white to-[#ecfdf5] text-[#0f172a] font-sans"
       data-testid="page-partners"
     >
-      <SEO
+      <PageSeo
         title="Partner Hub | Ardira"
         description="Join the Ardira Partner Hub. Collaborate with us to deliver 100% native Salesforce solutions to your clients."
+        path="/partner-hub"
         keywords="Salesforce partner program, Ardira partners, reseller program, referral partner"
-        ogTitle="Ardira Partner Hub"
-        ogDescription="Partner with Ardira to deliver native Salesforce solutions and grow your business."
-        ogUrl="https://ardira.com/partner-hub"
         ogImage="https://ardira.com/ArdiraLogo.webp"
-        ogImageWidth="512"
-        ogImageHeight="512"
-        ogImageType="image/webp"
-        ogLogo="https://ardira.com/ArdiraLogo.webp"
-      />
-      <StructuredData
-        type="WebPage"
-        name="Ardira Partner Hub"
-        description="Join the Ardira Partner Hub."
-        url="https://ardira.com/partner-hub"
       />
 
       {/* Why Partner */}

@@ -1,29 +1,17 @@
-import SEO from "../components/SEO";
-import StructuredData from "../components/StructuredData";
+import PageSeo from "../components/PageSeo";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-white text-[#0f172a] font-sans flex flex-col">
-      <SEO
+      <PageSeo
         title="Terms of Use | Ardira"
         description="Read the Terms of Use for Ardira, outlining the rules and guidelines for using our website and products."
+        path="/terms-of-use"
         keywords="terms of use, terms of service, Ardira terms"
-        ogTitle="Ardira Terms of Use"
-        ogDescription="Terms and conditions for using Ardira's website and services."
-        ogUrl="https://ardira.com/terms-of-use"
         ogImage="https://ardira.com/ArdiraLogo.webp"
-        ogImageWidth="512"
-        ogImageHeight="512"
-        ogImageType="image/webp"
-        ogLogo="https://ardira.com/ArdiraLogo.webp"
-      />
-      <StructuredData
-        type="WebPage"
-        name="Terms of Use"
-        description="Ardira's Terms of Use."
-        url="https://ardira.com/terms-of-use"
       />
       <main className="flex-grow w-full responsive-section">
+
         <div
           style={{
             maxWidth: "var(--max-width)",

@@ -7,7 +7,7 @@ import Stats from "../components/Stats";
 import Features from "../components/Features";
 import Contact from "../components/Contact";
 import PageSeo from "../components/PageSeo";
-import StructuredData from "../components/StructuredData";
+
 
 function Home() {
   const location = useLocation();
@@ -39,10 +39,8 @@ function Home() {
         path="/"
         keywords="Salesforce native apps, Salesforce applications, SurveyVista, RelationshipVista, native Salesforce"
         ogImage="https://ardira.com/ArdiraLogo.webp"
-        breadcrumbs={[{ name: "Home", path: "/" }]}
       />
-      <StructuredData type="Organization" />
-      <StructuredData type="WebSite" />
+
 
       <Hero />
       <TrustedSection />

@@ -1,29 +1,17 @@
-import SEO from "../components/SEO";
-import StructuredData from "../components/StructuredData";
+import PageSeo from "../components/PageSeo";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white text-[#0f172a] font-sans flex flex-col">
-      <SEO
+      <PageSeo
         title="Privacy Policy | Ardira"
         description="Learn how Ardira collects, uses, and protects your personal information in our comprehensive Privacy Policy."
+        path="/privacy-policy"
         keywords="privacy policy, data protection, Ardira privacy"
-        ogTitle="Ardira Privacy Policy"
-        ogDescription="How Ardira handles and protects your personal information."
-        ogUrl="https://ardira.com/privacy-policy"
         ogImage="https://ardira.com/ArdiraLogo.webp"
-        ogImageWidth="512"
-        ogImageHeight="512"
-        ogImageType="image/webp"
-        ogLogo="https://ardira.com/ArdiraLogo.webp"
-      />
-      <StructuredData
-        type="WebPage"
-        name="Privacy Policy"
-        description="Ardira's Privacy Policy."
-        url="https://ardira.com/privacy-policy"
       />
       <main className="flex-grow w-full responsive-section">
+
         <div
           style={{
             maxWidth: "var(--max-width)",

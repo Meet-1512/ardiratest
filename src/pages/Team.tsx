@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, Globe, Award, Zap } from "lucide-react";
 import ContactCta from "@/components/ContactCta";
-import SEO from "../components/SEO";
-import StructuredData from "../components/StructuredData";
+import PageSeo from "../components/PageSeo";
 import ardiraTeam from "@assets/ArdiraTeam.webp";
 
 import rajesh from "@assets/ArdiraMind/rajesh.webp";
@@ -101,20 +100,13 @@ export default function About() {
       className="min-h-screen bg-white text-[#0f172a] font-sans"
       data-testid="page-about"
     >
-      <SEO
+      <PageSeo
         title="Ardira Team | Enterprise Salesforce Experts"
         description="Meet Ardira's leadership team with 50+ years of combined Salesforce expertise. Based in USA and India, we deliver enterprise-grade solutions."
+        path="/team"
         keywords="Salesforce team, enterprise architects, Salesforce consultants"
-        ogTitle="Ardira Team - Salesforce Experts"
-        ogDescription="Experienced leadership and advisory board dedicated to Salesforce innovation"
-        ogUrl="https://ardira.com/team"
         ogImage="https://ardira.com/ArdiraLogo.webp"
-        ogImageWidth="512"
-        ogImageHeight="512"
-        ogImageType="image/webp"
-        ogLogo="https://ardira.com/ArdiraLogo.webp"
       />
-      <StructuredData type="Organization" />
 
       {/* Hero */}
       <section className="responsive-section pt-20 pb-20 bg-linear-to-br from-[#f0fdf4] via-white to-[#ecfdf5] relative overflow-hidden">
