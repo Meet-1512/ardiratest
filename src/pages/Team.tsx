@@ -105,7 +105,7 @@ export default function About() {
         description="Meet Ardira's leadership team with 50+ years of combined Salesforce expertise. Based in USA and India, we deliver enterprise-grade solutions."
         path="/team"
         keywords="Salesforce team, enterprise architects, Salesforce consultants"
-        ogImage="https://ardira.com/ArdiraLogo.webp"
+        ogImage="/ArdiraLogo.webp"
       />
 
       {/* Hero */}

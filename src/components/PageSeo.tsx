@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const BASE_URL =
   import.meta.env.VITE_CANONICAL_BASE_URL || "https://ardira.com";
-const DEFAULT_OG_IMAGE = "https://ardira.com/ArdiraLogo.webp";
+const DEFAULT_OG_IMAGE = "/ArdiraLogo.webp";
 const SITE_NAME = "Ardira";
 
 /** A single breadcrumb entry. */
@@ -22,7 +22,7 @@ export interface PageSeoProps {
   path?: string;
   /** Optional keywords meta tag value. */
   keywords?: string;
-  /** Override the default OG image URL. */
+  /** Override the default OG image. Accepts a relative path (e.g. "/ArdiraLogo.webp") which is resolved against BASE_URL. */
   ogImage?: string;
   /** OG type – defaults to "website". */
   ogType?: string;
@@ -63,6 +63,11 @@ export default function PageSeo({
   const cleanPath = path === "/" ? "/" : path.replace(/\/+$/, "") || "/";
   const pageUrl = `${BASE_URL}${cleanPath}`;
 
+  // Resolve relative image paths to absolute URLs (OG/Twitter require absolute URLs)
+  const resolvedImage = ogImage.startsWith("/")
+    ? `${BASE_URL}${ogImage}`
+    : ogImage;
+
   // Build BreadcrumbList JSON-LD if breadcrumbs are provided
   const breadcrumbSchema = breadcrumbs?.length
     ? {
@@ -92,14 +97,14 @@ export default function PageSeo({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={pageUrl} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={resolvedImage} />
       <meta property="og:site_name" content={SITE_NAME} />
 
       {/* ── Twitter Card ── */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={resolvedImage} />
 
       {/* ── BreadcrumbList JSON-LD ── */}
       {breadcrumbSchema && (

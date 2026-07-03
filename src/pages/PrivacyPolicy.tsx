@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
         description="Learn how Ardira collects, uses, and protects your personal information in our comprehensive Privacy Policy."
         path="/privacy-policy"
         keywords="privacy policy, data protection, Ardira privacy"
-        ogImage="https://ardira.com/ArdiraLogo.webp"
+        ogImage="/ArdiraLogo.webp"
       />
       <main className="flex-grow w-full responsive-section">
 
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
               <p className="mb-4">
                 The website located at{" "}
                 <a
-                  href="https://www.ardira.com"
+                  href="/"
                   className="text-emerald-600 hover:text-emerald-700 underline"
                 >
                   www.ardira.com
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
                   The types of information we collect from you or that you may
                   provide when you visit our website available at:{" "}
                   <a
-                    href="https://ardira.com"
+                    href="/"
                     className="text-emerald-600 hover:text-emerald-700 underline"
                   >
                     ardira.com

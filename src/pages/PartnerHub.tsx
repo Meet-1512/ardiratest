@@ -289,7 +289,7 @@ export default function PartnerHub() {
         description="Join the Ardira Partner Hub. Collaborate with us to deliver 100% native Salesforce solutions to your clients."
         path="/partner-hub"
         keywords="Salesforce partner program, Ardira partners, reseller program, referral partner"
-        ogImage="https://ardira.com/ArdiraLogo.webp"
+        ogImage="/ArdiraLogo.webp"
       />
 
       {/* Why Partner */}

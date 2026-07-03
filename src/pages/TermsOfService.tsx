@@ -8,7 +8,7 @@ export default function Terms() {
         description="Read the Terms of Use for Ardira, outlining the rules and guidelines for using our website and products."
         path="/terms-of-use"
         keywords="terms of use, terms of service, Ardira terms"
-        ogImage="https://ardira.com/ArdiraLogo.webp"
+        ogImage="/ArdiraLogo.webp"
       />
       <main className="flex-grow w-full responsive-section">
 
@@ -32,7 +32,7 @@ export default function Terms() {
               <p className="mb-4">
                 The website located at{" "}
                 <a
-                  href="https://www.ardira.com"
+                  href="/"
                   className="text-emerald-600 hover:text-emerald-700 underline"
                 >
                   www.ardira.com

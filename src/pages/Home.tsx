@@ -38,7 +38,7 @@ function Home() {
         description="Ardira builds 100% Salesforce-native applications with no integrations, ensuring data security and native performance on the Salesforce platform."
         path="/"
         keywords="Salesforce native apps, Salesforce applications, SurveyVista, RelationshipVista, native Salesforce"
-        ogImage="https://ardira.com/ArdiraLogo.webp"
+        ogImage="/ArdiraLogo.webp"
       />
 
 
