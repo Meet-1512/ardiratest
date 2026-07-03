@@ -102,7 +102,7 @@ const native = [
 function Features() {
   return (
     <section
-      id="why native"
+      id="why-native"
       className="responsive-section"
       style={{
         paddingTop: 40,
