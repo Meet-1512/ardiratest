@@ -146,7 +146,7 @@ function Products() {
     const productParam = params.get("product") as ProductKey | null;
     if (productParam && productKeys.includes(productParam)) {
       setActiveTab(productParam);
-      const trigger = document.getElementById("product");
+      const trigger = document.getElementById("products");
       if (trigger) {
         trigger.scrollIntoView({ behavior: "smooth" });
       }
@@ -172,7 +172,7 @@ function Products() {
 
   return (
     <section
-      id="product"
+      id="products"
       className="responsive-section"
       style={{
         paddingTop: 40,

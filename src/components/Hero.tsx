@@ -147,7 +147,7 @@ function Hero() {
           }}
         >
           <Link
-            to="/#product"
+            to="/#products"
             className="btn"
             onClick={handleLinkClick}
             style={{

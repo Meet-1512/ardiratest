@@ -70,7 +70,7 @@ function Navbar() {
           <ul className="nav-menu">
             <li className="nav-hide-mobile">
               <Link
-                to="/#product"
+                to="/#products"
                 onClick={handleLinkClick}
                 style={{
                   fontSize: 14,
@@ -160,7 +160,7 @@ function Navbar() {
       {isMenuOpen && (
         <div className="mobile-menu-overlay open">
           <Link
-            to="/#product"
+            to="/#products"
             className="mobile-nav-link"
             onClick={handleLinkClick}
           >

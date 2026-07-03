@@ -59,12 +59,13 @@ function ScrollToTop() {
       }, 100);
     } else if (hash) {
       // If there's a hash, find the element and scroll to it
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) {
-        setTimeout(() => {
+      // Adding a short timeout ensures the element is in the DOM
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace("#", ""));
+        if (element) {
           element.scrollIntoView({ behavior: "smooth" });
-        }, 0);
-      }
+        }
+      }, 100);
     } else {
       // Otherwise scroll to top
       window.scrollTo(0, 0);
