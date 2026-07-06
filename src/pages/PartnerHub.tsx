@@ -228,6 +228,12 @@ export default function PartnerHub() {
       // Get reCAPTCHA token
       const recaptchaToken = await executeRecaptcha("partner_form");
 
+      if (!recaptchaToken) {
+        throw new Error(
+          "reCAPTCHA validation failed. Please reload the page and try again.",
+        );
+      }
+
       const LEAD_SUBMIT_URL =
         import.meta.env.VITE_LEAD_SUBMIT_URL ||
         "https://wcwdswvijpaovpxmviyh.supabase.co/functions/v1/submit-lead";
@@ -261,6 +267,13 @@ export default function PartnerHub() {
       }
 
       if (!response.ok) {
+        if (response.status === 403) {
+          throw new Error(
+            (result.message as string) ||
+              "Submission forbidden (403). reCAPTCHA or server authorization failed.",
+          );
+        }
+
         throw new Error(
           (result.message as string) || (result.error as string) || "Failed to submit application",
         );

@@ -197,6 +197,12 @@ function Contact() {
       // Get reCAPTCHA token
       const recaptchaToken = await executeRecaptcha("contact_form");
 
+      if (!recaptchaToken) {
+        throw new Error(
+          "reCAPTCHA validation failed. Please reload the page and try again.",
+        );
+      }
+
       const LEAD_SUBMIT_URL =
         import.meta.env.VITE_LEAD_SUBMIT_URL ||
         "https://wcwdswvijpaovpxmviyh.supabase.co/functions/v1/submit-lead";
@@ -229,6 +235,14 @@ function Contact() {
       }
 
       if (!response.ok) {
+        // Provide clearer messaging for 403 responses (likely invalid/missing token or server auth)
+        if (response.status === 403) {
+          throw new Error(
+            (result.message as string) ||
+              "Submission forbidden (403). reCAPTCHA or server authorization failed.",
+          );
+        }
+
         throw new Error(
           (result.message as string) || (result.error as string) || "Failed to send message",
         );

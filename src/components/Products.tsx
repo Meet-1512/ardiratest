@@ -455,7 +455,7 @@ function Products() {
                 >
                   <img
                     loading="eager"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     src={products[activeTab].image}
                     alt={productMeta[activeTab].name}
                     style={{
