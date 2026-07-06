@@ -16,4 +16,7 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "./src/assets"),
     },
   },
+  build: {
+    target: "es2020",
+  },
 });

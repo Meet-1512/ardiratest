@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import Hero from "../components/Hero";
-import TrustedSection from "../components/TrustedSection";
-import Products from "../components/Products";
-import Stats from "../components/Stats";
-import Features from "../components/Features";
-import Contact from "../components/Contact";
+const TrustedSection = lazy(() => import("../components/TrustedSection"));
+const Products = lazy(() => import("../components/Products"));
+const Stats = lazy(() => import("../components/Stats"));
+const Features = lazy(() => import("../components/Features"));
+const Contact = lazy(() => import("../components/Contact"));
 import PageSeo from "../components/PageSeo";
 
 
@@ -43,11 +43,13 @@ function Home() {
 
 
       <Hero />
-      <TrustedSection />
-      <Products />
-      <Stats />
-      <Features />
-      <Contact />
+      <Suspense fallback={null}>
+        <TrustedSection />
+        <Products />
+        <Stats />
+        <Features />
+        <Contact />
+      </Suspense>
     </>
   );
 }
