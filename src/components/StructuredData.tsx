@@ -1,4 +1,4 @@
-import { useEffect, useId } from "react";
+import { useEffect, useId, memo } from "react";
 
 interface OrganizationProps {
   type: "Organization";
@@ -77,7 +77,7 @@ function buildWebPageSchema(name: string, description: string, url: string) {
   };
 }
 
-export default function StructuredData(props: StructuredDataProps) {
+function StructuredData(props: StructuredDataProps) {
   const id = useId();
   const scriptId = `structured-data-${id}`;
 
@@ -110,3 +110,5 @@ export default function StructuredData(props: StructuredDataProps) {
 
   return null;
 }
+
+export default memo(StructuredData);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ArdiraLogo from "@assets/ArdiraLogo.webp";
 import { Menu, X } from "lucide-react";
@@ -201,4 +201,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useLocation } from "react-router-dom";
 
 const BASE_URL =
@@ -14,7 +14,7 @@ const BASE_URL =
  * - Builds the full canonical URL from BASE_URL + cleaned pathname.
  * - Updates the existing #canonical-link element's href attribute.
  */
-export default function CanonicalManager() {
+function CanonicalManager() {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -35,3 +35,5 @@ export default function CanonicalManager() {
 
   return null;
 }
+
+export default memo(CanonicalManager);

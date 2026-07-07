@@ -18,5 +18,25 @@ export default defineConfig({
   },
   build: {
     target: "es2020",
+    minify: "terser",
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Separate vendor chunks
+          if (id.includes("node_modules")) {
+            if (id.includes("@radix-ui")) {
+              return "radix-ui";
+            }
+            if (id.includes("react")) {
+              return "react-vendor";
+            }
+            return "vendor";
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+    sourcemap: false,
   },
 });

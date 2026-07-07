@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 
 interface SEOProps {
   title: string;
@@ -64,7 +64,6 @@ export default function SEO({
   ogImageHeight,
   ogImageType,
   ogLogo,
-  ogType = "website",
   canonicalUrl,
 }: SEOProps) {
   useEffect(() => {
@@ -173,3 +172,5 @@ export default function SEO({
 
   return null;
 }
+
+export default memo(SEO);

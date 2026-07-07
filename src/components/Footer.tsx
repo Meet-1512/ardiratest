@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, memo } from "react-router-dom";
 import ArdiraFooterLogo from "@assets/ArdiraFooterLogo.webp";
 import SalesForcePartnerLogo from "@assets/SalesForcePartnerLogo.webp";
 
@@ -318,4 +318,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default memo(Footer);

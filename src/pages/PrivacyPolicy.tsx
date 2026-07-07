@@ -11,7 +11,6 @@ export default function PrivacyPolicy() {
         ogImage="/ArdiraLogo.webp"
       />
       <main className="flex-grow w-full responsive-section">
-
         <div
           style={{
             maxWidth: "var(--max-width)",

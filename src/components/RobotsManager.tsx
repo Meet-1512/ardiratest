@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { memo } from "react";
 
 /**
  * RobotsManager
@@ -11,7 +12,7 @@ import { Helmet } from "react-helmet-async";
  * Individual pages can still override with their own <meta name="robots"> via
  * react-helmet-async's nested priority (deeper Helmet wins).
  */
-export default function RobotsManager() {
+function RobotsManager() {
   const appEnv =
     import.meta.env.VITE_APP_ENV || import.meta.env.MODE || "development";
   const isProduction = appEnv === "production";
@@ -28,3 +29,5 @@ export default function RobotsManager() {
     </Helmet>
   );
 }
+
+export default memo(RobotsManager);

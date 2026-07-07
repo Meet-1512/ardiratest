@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { memo } from "react";
 
 const BASE_URL =
   import.meta.env.VITE_CANONICAL_BASE_URL || "https://ardira.com";
@@ -49,7 +50,7 @@ export interface PageSeoProps {
  * - Optional <meta name="robots" content="noindex"> for pages that must never be indexed
  * - Optional BreadcrumbList JSON-LD structured data
  */
-export default function PageSeo({
+function PageSeo({
   title,
   description,
   path = "/",
@@ -115,3 +116,5 @@ export default function PageSeo({
     </Helmet>
   );
 }
+
+export default memo(PageSeo);
