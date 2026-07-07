@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { memo } from "react";
-=======
-import { memo } from "react";
-import { Link } from "react-router-dom";
->>>>>>> e3bbb96efd0087ac71f386c4ab722be45b4344d3
 import ArdiraFooterLogo from "@assets/ArdiraFooterLogo.webp";
 import SalesForcePartnerLogo from "@assets/SalesForcePartnerLogo.webp";
 
