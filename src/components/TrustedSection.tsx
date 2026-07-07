@@ -41,7 +41,7 @@ function TrustedSection() {
             className="logo-track flex items-center animate-marquee py-2 w-max"
             style={{ animationDuration: "140s" }}
           >
-            {[...partners, ...partners, ...partners, ...partners].map(
+            {[...partners, ...partners].map(
               (logo, idx) => (
                 <div
                   key={idx}
