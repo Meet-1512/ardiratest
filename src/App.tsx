@@ -5,7 +5,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { useRecaptcha } from "./hooks/useRecaptcha";
 import Navbar from "./components/Navbar";
@@ -13,11 +13,11 @@ import Footer from "./components/Footer";
 import RobotsManager from "./components/RobotsManager";
 import CanonicalManager from "./components/CanonicalManager";
 import Home from "./pages/Home";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import PartnerHub from "./pages/PartnerHub";
-import Team from "./pages/Team";
-import NotFound from "./pages/NotFound";
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PartnerHub = lazy(() => import("./pages/PartnerHub"));
+const Team = lazy(() => import("./pages/Team"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 let isInitialAppLoad = true;
 
@@ -133,6 +133,7 @@ function App() {
           }}
         >
           <Navbar />
+          <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/team" element={<Team />} />
@@ -141,6 +142,7 @@ function App() {
             <Route path="/partner-hub" element={<PartnerHub />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
           <Footer />
         </div>
       </Router>

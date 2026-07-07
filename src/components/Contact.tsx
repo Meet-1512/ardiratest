@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent, memo } from "react";
+import { useState, useRef, useEffect, ChangeEvent, FormEvent, memo } from "react";
 import { Link } from "react-router-dom";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { RecaptchaBadge } from "@/components/RecaptchaBadge";
@@ -38,6 +38,24 @@ function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [mapVisible, setMapVisible] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = mapRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMapVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -445,6 +463,7 @@ function Contact() {
             </div>
 
             <div
+              ref={mapRef}
               style={{
                 marginTop: 24,
                 borderRadius: 12,
@@ -452,18 +471,21 @@ function Contact() {
                 border: "1.5px solid var(--border-color)",
                 flex: 1,
                 minHeight: 180,
+                background: "var(--bg-light)",
               }}
             >
-              <iframe
-                title="Ardira Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.8351573030383!2d-121.9442!3d37.3713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc996944e99f9%3A0x6a0c0a34b2f6b8b0!2s2040+Martin+Ave%2C+Santa+Clara%2C+CA+95050!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              {mapVisible && (
+                <iframe
+                  title="Ardira Office Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.8351573030383!2d-121.9442!3d37.3713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc996944e99f9%3A0x6a0c0a34b2f6b8b0!2s2040+Martin+Ave%2C+Santa+Clara%2C+CA+95050!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              )}
             </div>
           </div>
 

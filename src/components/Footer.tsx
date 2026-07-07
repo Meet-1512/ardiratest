@@ -35,6 +35,10 @@ function Footer() {
               <img
                 src={ArdiraFooterLogo}
                 alt="Ardira"
+                width={120}
+                height={40}
+                loading="lazy"
+                decoding="async"
                 style={{ height: 40, width: "auto", display: "block" }}
               />
             </Link>
@@ -64,6 +68,10 @@ function Footer() {
             <img
               src={SalesForcePartnerLogo}
               alt="Salesforce Partner"
+              width={120}
+              height={40}
+              loading="lazy"
+              decoding="async"
               style={{ height: 40, width: "auto", objectFit: "contain" }}
             />
           </div>

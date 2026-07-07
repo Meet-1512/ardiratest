@@ -246,6 +246,9 @@ function Hero() {
             <img
               src={AppExchangeImg}
               alt="AppExchange"
+              width={120}
+              height={40}
+              decoding="async"
               style={{ height: 40, width: "auto" }}
             />
           </div>

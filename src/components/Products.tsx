@@ -300,9 +300,12 @@ function Products() {
                   }}
                 >
                   <img
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
                     src={productMeta[activeTab].icon}
                     alt={productMeta[activeTab].name}
+                    width={38}
+                    height={38}
                     style={{
                       width: 38,
                       height: 38,
@@ -410,9 +413,12 @@ function Products() {
                       style={{ display: "flex", alignItems: "center", gap: 12 }}
                     >
                       <img
-                        loading="eager"
+                        loading="lazy"
+                        decoding="async"
                         src={productMeta[key].icon}
                         alt={productMeta[key].name}
+                        width={32}
+                        height={32}
                         style={{ width: 32, height: 32, objectFit: "contain" }}
                       />
                       <div>
@@ -454,10 +460,11 @@ function Products() {
                   style={{ animation: "fadeIn 0.4s ease", flex: 1 }}
                 >
                   <img
-                    loading="eager"
-                    fetchPriority="high"
+                    loading="lazy"
+                    decoding="async"
                     src={products[activeTab].image}
                     alt={productMeta[activeTab].name}
+                    height={activeTab === "relationshipvista" ? 65 : 40}
                     style={{
                       height: activeTab === "relationshipvista" ? 65 : 40,
                       marginBottom: 16,

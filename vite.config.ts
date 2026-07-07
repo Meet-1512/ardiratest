@@ -17,11 +17,12 @@ export default defineConfig({
     },
   },
   build: {
-    target: "es2020",
+    target: "es2022",
     minify: "terser",
     terserOptions: {
       compress: {
         drop_console: false,
+        drop_debugger: true,
         passes: 2,
       },
       mangle: true,
@@ -35,6 +36,12 @@ export default defineConfig({
       output: {
         manualChunks: (id) => {
           if (id.includes("node_modules")) {
+            if (id.includes("framer-motion")) {
+              return "framer-motion";
+            }
+            if (id.includes("lucide-react")) {
+              return "lucide-react";
+            }
             if (id.includes("@radix-ui")) {
               return "radix-ui";
             }

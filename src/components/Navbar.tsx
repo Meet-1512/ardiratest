@@ -67,7 +67,7 @@ function Navbar() {
           }}
         >
           <Link to="/" onClick={handleLinkClick} aria-label="Ardira Home">
-            <img src={ArdiraLogo} alt="Ardira Logo" className="nav-logo" />
+            <img src={ArdiraLogo} alt="Ardira Logo" className="nav-logo" width={120} height={36} decoding="async" />
           </Link>
           <ul className="nav-menu">
             <li className="nav-hide-mobile">

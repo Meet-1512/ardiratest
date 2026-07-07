@@ -59,6 +59,9 @@ function TrustedSection() {
                     src={logo}
                     alt={`Trusted Enterprise ${idx}`}
                     loading="lazy"
+                    decoding="async"
+                    width={140}
+                    height={64}
                     style={{
                       maxHeight: "100%",
                       maxWidth: 140,
