@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, memo } from "react";
 import { Link } from "react-router-dom";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { RecaptchaBadge } from "@/components/RecaptchaBadge";
@@ -895,4 +895,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default memo(Contact);

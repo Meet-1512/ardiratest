@@ -19,17 +19,30 @@ export default defineConfig({
   build: {
     target: "es2020",
     minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: false,
+        passes: 2,
+      },
+      mangle: true,
+      format: {
+        comments: false,
+      },
+    },
     cssMinify: true,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Separate vendor chunks
           if (id.includes("node_modules")) {
             if (id.includes("@radix-ui")) {
               return "radix-ui";
             }
-            if (id.includes("react")) {
-              return "react-vendor";
+            if (id.includes("react-router")) {
+              return "react-router";
+            }
+            if (id.includes("@tanstack")) {
+              return "tanstack";
             }
             return "vendor";
           }

@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ArdiraLogo from "@assets/ArdiraLogo.webp";
 import { Menu, X } from "lucide-react";
@@ -12,7 +12,7 @@ function Navbar() {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleLinkClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     const href = e.currentTarget.getAttribute("href");
     if (href && href.includes("#")) {
       e.preventDefault();
@@ -38,12 +38,14 @@ function Navbar() {
       window.scrollTo(0, 0);
     }
     setIsMenuOpen(false);
-  };
+  }, [location.pathname, navigate]);
 
   return (
     <>
       <nav
         className="responsive-nav"
+        role="navigation"
+        aria-label="Main navigation"
         style={{
           position: "sticky",
           top: 0,
@@ -64,8 +66,8 @@ function Navbar() {
             justifyContent: "space-between",
           }}
         >
-          <Link to="/" onClick={handleLinkClick}>
-            <img src={ArdiraLogo} alt="Ardira" className="nav-logo" />
+          <Link to="/" onClick={handleLinkClick} aria-label="Ardira Home">
+            <img src={ArdiraLogo} alt="Ardira Logo" className="nav-logo" />
           </Link>
           <ul className="nav-menu">
             <li className="nav-hide-mobile">
@@ -140,6 +142,8 @@ function Navbar() {
             <li className="hamburger-btn">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMenuOpen}
                 style={{
                   background: "none",
                   border: "none",
@@ -149,7 +153,11 @@ function Navbar() {
                   color: "var(--navy)",
                 }}
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? (
+                  <X size={24} aria-hidden="true" />
+                ) : (
+                  <Menu size={24} aria-hidden="true" />
+                )}
               </button>
             </li>
           </ul>
@@ -158,7 +166,11 @@ function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="mobile-menu-overlay open">
+        <div 
+          className="mobile-menu-overlay open"
+          role="navigation"
+          aria-label="Mobile navigation menu"
+        >
           <Link
             to="/#products"
             className="mobile-nav-link"
