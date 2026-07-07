@@ -31,12 +31,12 @@ function Footer() {
       >
         <div className="footer-col" style={{ paddingRight: "40px" }}>
           <div style={{ marginBottom: 16 }}>
-            <Link to="/" onClick={handleLinkClick}>
+            <Link to="/" onClick={handleLinkClick} aria-label="Ardira Home">
               <img
                 src={ArdiraFooterLogo}
                 alt="Ardira"
-                width={120}
-                height={40}
+                width={592}
+                height={166}
                 loading="lazy"
                 decoding="async"
                 style={{ height: 40, width: "auto", display: "block" }}
@@ -68,8 +68,8 @@ function Footer() {
             <img
               src={SalesForcePartnerLogo}
               alt="Salesforce Partner"
-              width={120}
-              height={40}
+              width={1151}
+              height={319}
               loading="lazy"
               decoding="async"
               style={{ height: 40, width: "auto", objectFit: "contain" }}

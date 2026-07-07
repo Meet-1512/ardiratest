@@ -25,6 +25,8 @@ const products: Record<
     title: string;
     description: string;
     image: string;
+    width: number;
+    height: number;
     features: string[];
     link: string;
   }
@@ -35,6 +37,8 @@ const products: Record<
     description:
       "The 100% Salesforce-native Customer Intelligence & Action Platform. Every response writes directly to your CRM — AI triggers automated workflows instantly, preventing churn and surfacing revenue.",
     image: svImageLogo,
+    width: 183,
+    height: 40,
     features: [
       "Surveys, forms & assessments unified",
       "AI churn detection & intervention",
@@ -50,6 +54,8 @@ const products: Record<
     description:
       "Native Salesforce business forms that write data directly into your CRM — no third-party tools, no integration overhead, no data leaving your org. Beautiful,branded forms connected to any Salesforce object.",
     image: fvImageLogo,
+    width: 161,
+    height: 40,
     features: [
       "Writes to any Salesforce object",
       "Branded, mobile-responsive design",
@@ -66,6 +72,8 @@ const products: Record<
     description:
       "Native Salesforce assessments, risk scoring, and compliance workflows. Signals detected in real-time — alerts fire instantly, evidence preserved automatically, regulators never catch you unprepared.",
     image: cvImageLogo,
+    width: 171,
+    height: 40,
     features: [
       "Real-time compliance risk detection",
       "Automated evidence preservation",
@@ -81,6 +89,8 @@ const products: Record<
     description:
       "Deploy intelligent AI agents that operate natively within Salesforce — with full CRM context, executing automated actions, delivering results without ever leaving your secure org environment.",
     image: avImageLogo,
+    width: 195,
+    height: 40,
     features: [
       "AI agents with full CRM context",
       "Executes actions directly in Salesforce",
@@ -96,6 +106,8 @@ const products: Record<
     description:
       "Visualize, analyze and navigate complex Salesforce account relationships and hierarchies — natively. See parent-child structures and account networks without ever leaving your CRM.",
     image: rvImageLogo,
+    width: 244,
+    height: 65,
     features: [
       "Interactive hierarchy visualization",
       "Any Salesforce object or relationship",
@@ -270,6 +282,7 @@ function Products() {
               >
                 <button
                   onClick={handlePrev}
+                  aria-label="Previous product"
                   className="carousel-nav-btn-inline"
                   style={{
                     background: "#fff",
@@ -347,6 +360,7 @@ function Products() {
 
                 <button
                   onClick={handleNext}
+                  aria-label="Next product"
                   className="carousel-nav-btn-inline"
                   style={{
                     background: "#fff",
@@ -464,9 +478,10 @@ function Products() {
                     decoding="async"
                     src={products[activeTab].image}
                     alt={productMeta[activeTab].name}
-                    height={activeTab === "relationshipvista" ? 65 : 40}
+                    width={products[activeTab].width}
+                    height={products[activeTab].height}
                     style={{
-                      height: activeTab === "relationshipvista" ? 65 : 40,
+                      height: products[activeTab].height,
                       marginBottom: 16,
                       objectFit: "contain",
                     }}

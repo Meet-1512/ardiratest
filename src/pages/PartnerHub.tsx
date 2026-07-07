@@ -319,9 +319,9 @@ export default function PartnerHub() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#43AF57] mb-3">
               Why Partner With Us
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-[#0f172a] leading-tight max-w-2xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold font-display text-[#0f172a] leading-tight max-w-2xl mx-auto">
               Built for Mutual Success
-            </h2>
+            </h1>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -534,10 +534,11 @@ export default function PartnerHub() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label htmlFor="partner-fullName" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="partner-fullName"
                         type="text"
                         name="fullName"
                         value={formData.fullName}
@@ -569,10 +570,11 @@ export default function PartnerHub() {
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label htmlFor="partner-company" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                         Company Name <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="partner-company"
                         type="text"
                         name="company"
                         value={formData.company}
@@ -604,10 +606,11 @@ export default function PartnerHub() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label htmlFor="partner-email" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                         Business Email <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="partner-email"
                         type="email"
                         name="email"
                         value={formData.email}
@@ -636,10 +639,11 @@ export default function PartnerHub() {
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label htmlFor="partner-phone" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                         Phone Number <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="partner-phone"
                         type="tel"
                         name="phone"
                         value={formData.phone}
@@ -674,7 +678,7 @@ export default function PartnerHub() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label htmlFor="partner-country" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                         Country / Region <span className="text-red-500">*</span>
                       </label>
                       <Select
@@ -691,6 +695,7 @@ export default function PartnerHub() {
                         }}
                       >
                         <SelectTrigger
+                          id="partner-country"
                           name="country"
                           onBlur={() =>
                             validateSequenceUpTo("country", formData)
@@ -719,7 +724,7 @@ export default function PartnerHub() {
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label htmlFor="partner-partnerType" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                         Partnership Type <span className="text-red-500">*</span>
                       </label>
                       <Select
@@ -739,6 +744,7 @@ export default function PartnerHub() {
                         }}
                       >
                         <SelectTrigger
+                          id="partner-partnerType"
                           name="partnerType"
                           onBlur={() =>
                             validateSequenceUpTo("partnerType", formData)
@@ -765,11 +771,12 @@ export default function PartnerHub() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                    <label htmlFor="partner-message" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
                       Tell us about your business{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <textarea
+                      id="partner-message"
                       rows={4}
                       name="message"
                       value={formData.message}
