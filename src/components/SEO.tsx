@@ -52,7 +52,7 @@ function removeCanonical() {
   if (link) link.remove();
 }
 
-export default function SEO({
+function SEO({
   title,
   description,
   keywords,
@@ -64,6 +64,7 @@ export default function SEO({
   ogImageHeight,
   ogImageType,
   ogLogo,
+  ogType = "website",
   canonicalUrl,
 }: SEOProps) {
   useEffect(() => {
