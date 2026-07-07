@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+allow: /
 
 Sitemap: https://ardira.com/sitemap.xml
