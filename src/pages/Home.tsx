@@ -30,6 +30,31 @@ function Home() {
     }
   }, [location]);
 
+  useEffect(() => {
+    const prefetchHomeSections = () => {
+      void Promise.all([
+        import("../components/TrustedSection"),
+        import("../components/Products"),
+        import("../components/Stats"),
+        import("../components/Features"),
+        import("../components/Contact"),
+      ]);
+    };
+
+    const handle =
+      "requestIdleCallback" in window
+        ? window.requestIdleCallback(prefetchHomeSections, { timeout: 3000 })
+        : window.setTimeout(prefetchHomeSections, 3000);
+
+    return () => {
+      if ("cancelIdleCallback" in window) {
+        window.cancelIdleCallback(handle as number);
+      } else {
+        window.clearTimeout(handle as number);
+      }
+    };
+  }, []);
+
   return (
     <>
       <PageSeo

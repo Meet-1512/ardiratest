@@ -88,6 +88,21 @@ function App() {
       loadRecaptcha();
     }, 5000);
 
+    // ── Prefetch route bundles during idle time to improve navigation performance ──
+    const prefetchRoutes = () => {
+      void Promise.all([
+        import("./pages/Team"),
+        import("./pages/PartnerHub"),
+        import("./pages/PrivacyPolicy"),
+        import("./pages/TermsOfService"),
+      ]);
+    };
+
+    const routeHandle =
+      "requestIdleCallback" in window
+        ? window.requestIdleCallback(prefetchRoutes, { timeout: 5000 })
+        : window.setTimeout(prefetchRoutes, 5000);
+
     // ── Mobile tap-to-toggle for the reCAPTCHA badge ──
     // Only attach on coarse-pointer (touch) devices; fine-pointer devices
     // use the CSS :hover rule instead.
@@ -112,6 +127,11 @@ function App() {
 
     return () => {
       clearTimeout(timer);
+      if ("cancelIdleCallback" in window) {
+        window.cancelIdleCallback(routeHandle as number);
+      } else {
+        window.clearTimeout(routeHandle as number);
+      }
       document.removeEventListener("click", handleTap, true);
       document.removeEventListener("touchstart", handleTap, true);
     };
