@@ -49,6 +49,8 @@
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.google.com" />
     <link rel="dns-prefetch" href="https://www.gstatic.com" />
+    <!-- Preload main module to speed initial parsing and execution -->
+    <link rel="modulepreload" href="/src/main.tsx">
     <link
       rel="preload"
       href="/fonts/Inter-300-400-500-600-700.woff2"
@@ -71,6 +73,8 @@
       crossorigin
     />
     <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
+    <!-- Preload primary logo used in hero/navbar to improve LCP -->
+    <link rel="preload" href="/ArdiraLogo.webp" as="image" type="image/webp">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
