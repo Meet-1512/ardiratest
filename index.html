@@ -1,420 +1,451 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KL38DRB6");
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>
+      (function () {
+        var getValue = function (value) {
+          return typeof value === "string" && value && value.indexOf("%") === -1
+            ? value
+            : undefined;
+        };
 
-<head>
-  <meta charset="UTF-8" />
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KL38DRB6');</script>
-  <!-- End Google Tag Manager -->
-  <script>
-    (function () {
-      var getValue = function (value) {
-        return typeof value === 'string' && value && value.indexOf('%') === -1
-          ? value
-          : undefined;
-      };
+        var runtimeKey =
+          getValue(window.RECAPTCHA_SITE_KEY) ||
+          getValue(window.ARDIRA_reCAPTCHA_Site) ||
+          getValue(window.Demo_Site) ||
+          getValue(window.Demo_Recaptcha_Site) ||
+          getValue("%RECAPTCHA_SITE_KEY%") ||
+          getValue("%ARDIRA_reCAPTCHA_Site%") ||
+          getValue("%Demo_Site%") ||
+          getValue("%Demo_Recaptcha_Site%");
 
-      var runtimeKey =
-        getValue(window.RECAPTCHA_SITE_KEY) ||
-        getValue(window.ARDIRA_reCAPTCHA_Site) ||
-        getValue(window.Demo_Site) ||
-        getValue(window.Demo_Recaptcha_Site) ||
-        getValue('%RECAPTCHA_SITE_KEY%') ||
-        getValue('%ARDIRA_reCAPTCHA_Site%') ||
-        getValue('%Demo_Site%') ||
-        getValue('%Demo_Recaptcha_Site%');
+        if (runtimeKey) {
+          window.RECAPTCHA_SITE_KEY = runtimeKey;
+        }
+      })();
+    </script>
+    <!-- Preconnects & font preloads for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://www.google.com" crossorigin />
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://www.gstatic.com" />
+    <link
+      rel="preload"
+      href="/fonts/Inter-300-400-500-600-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Poppins-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Poppins-800.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ardira builds 100% Salesforce-native applications with no integrations and no data leaving your org."
+    />
 
-      if (runtimeKey) {
-        window.RECAPTCHA_SITE_KEY = runtimeKey;
-      }
-    })();
-  </script>
-  <!-- Preconnects & font preloads for performance -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
-  <link rel="preconnect" href="https://www.google-analytics.com" />
-  <link rel="preconnect" href="https://www.google.com" crossorigin />
-  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://www.google.com" />
-  <link rel="dns-prefetch" href="https://www.gstatic.com" />
-  <link rel="preload" href="/fonts/Inter-300-400-500-600-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/Poppins-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/Poppins-800.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Ardira builds 100% Salesforce-native applications with no integrations and no data leaving your org." />
+    <!-- Canonical Link (dynamically updated by CanonicalManager) -->
+    <link id="canonical-link" rel="canonical" href="https://ardira.com/" />
 
-  <!-- Canonical Link (dynamically updated by CanonicalManager) -->
-  <link id="canonical-link" rel="canonical" href="https://ardira.com/" />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Ardira — 100% Native Salesforce Applications"
+    />
+    <meta
+      property="og:description"
+      content="Enterprise-grade, 100% native Salesforce products. No integrations. No data leaks."
+    />
+    <meta property="og:url" content="https://ardira.com" />
+    <meta property="og:image" content="https://ardira.com/ArdiraLogo.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:logo" content="https://ardira.com/ArdiraLogo.webp" />
+    <meta property="og:site_name" content="Ardira" />
 
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ardira — 100% Native Salesforce Applications" />
-  <meta property="og:description"
-    content="Enterprise-grade, 100% native Salesforce products. No integrations. No data leaks." />
-  <meta property="og:url" content="https://ardira.com" />
-  <meta property="og:image" content="https://ardira.com/ArdiraLogo.webp" />
-  <meta property="og:image:type" content="image/webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:logo" content="https://ardira.com/ArdiraLogo.webp" />
-  <meta property="og:site_name" content="Ardira" />
+    <title>Ardira — 100% Native Salesforce Applications</title>
 
-  <title>Ardira — 100% Native Salesforce Applications</title>
-
-  <!-- ══════════════════════════════════════════════════
+    <!-- ══════════════════════════════════════════════════
          STRUCTURED DATA (JSON-LD) — Page-Wise Schemas
          ══════════════════════════════════════════════════ -->
 
-  <!-- ── Global: Organization ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Ardira",
-      "legalName": "Ardira Corporation",
-      "url": "https://ardira.com",
-      "logo": "https://ardira.com/favicon.webp",
-      "description": "Ardira builds 100% Salesforce-native applications with no integrations, ensuring data security and native performance on the Salesforce platform.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2040 Martin Ave",
-        "addressLocality": "Santa Clara",
-        "addressRegion": "CA",
-        "postalCode": "95050",
-        "addressCountry": "US"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-669-777-6838",
-        "contactType": "sales",
-        "availableLanguage": "English"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/ardira"
-      ]
-    }
-    </script>
-
-  <!-- ── Global: WebSite ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Ardira",
-      "url": "https://ardira.com",
-      "description": "Ardira builds 100% Salesforce-native applications with no integrations, ensuring data security and native performance.",
-      "publisher": {
+    <!-- ── Global: Organization ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Ardira",
-        "url": "https://ardira.com"
+        "legalName": "Ardira Corporation",
+        "url": "https://ardira.com",
+        "logo": "https://ardira.com/favicon.webp",
+        "description": "Ardira builds 100% Salesforce-native applications with no integrations, ensuring data security and native performance on the Salesforce platform.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2040 Martin Ave",
+          "addressLocality": "Santa Clara",
+          "addressRegion": "CA",
+          "postalCode": "95050",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-669-777-6838",
+          "contactType": "sales",
+          "availableLanguage": "English"
+        },
+        "sameAs": ["https://www.linkedin.com/company/ardira"]
       }
-    }
     </script>
 
-  <!-- ── Home Page: SoftwareApplication — SurveyVista ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "SurveyVista",
-      "description": "The 100% Salesforce-native Customer Intelligence & Action Platform. Every response writes directly to your CRM — AI triggers automated workflows instantly, preventing churn and surfacing revenue.",
-      "url": "https://surveyvista.com/",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "featureList": "Surveys, forms & assessments unified, AI churn detection & intervention, Workflows fire on response receipt, Enriches Salesforce records instantly, 5-star rated on AppExchange, Trusted by 450+ organizations",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      }
-    }
-    </script>
-
-  <!-- ── Home Page: SoftwareApplication — FormVista ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "FormVista",
-      "description": "Native Salesforce business forms that write data directly into your CRM — no third-party tools, no integration overhead, no data leaving your org. Beautiful, branded forms connected to any Salesforce object.",
-      "url": "https://surveyvista.com/products/form-vista-business-forms/",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "featureList": "Writes to any Salesforce object, Branded mobile-responsive design, Conditional logic & smart branching, Pre-fill from Salesforce record data, Workflow triggers on submission, Zero integration tax",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      }
-    }
-    </script>
-
-  <!-- ── Home Page: SoftwareApplication — ComplianceVista ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "ComplianceVista",
-      "description": "Native Salesforce assessments, risk scoring, and compliance workflows. Signals detected in real-time — alerts fire instantly, evidence preserved automatically, regulators never catch you unprepared.",
-      "url": "https://compliancevista.com",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "featureList": "Real-time compliance risk detection, Automated evidence preservation, Regulatory response workflows, Complete audit trail in one system, Risk scoring with full CRM context, Inherits Salesforce security",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      }
-    }
-    </script>
-
-  <!-- ── Home Page: SoftwareApplication — AgentVista ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "AgentVista",
-      "description": "Deploy intelligent AI agents that operate natively within Salesforce — with full CRM context, executing automated actions, delivering results without ever leaving your secure org environment.",
-      "url": "https://agentsvista.com",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "featureList": "AI agents with full CRM context, Executes actions directly in Salesforce, No external AI data exposure, Agentforce native integration, Automated multi-step workflows, Inherits your org's security model",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      }
-    }
-    </script>
-
-  <!-- ── Home Page: SoftwareApplication — RelationshipVista ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "RelationshipVista",
-      "description": "Visualize, analyze and navigate complex Salesforce account relationships and hierarchies — natively. See parent-child structures and account networks without ever leaving your CRM.",
-      "url": "https://relationshipvista.com",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "featureList": "Interactive hierarchy visualization, Any Salesforce object or relationship, Click-through to records in context, Configurable depth & display options, No external tools or exports needed, Works with all Salesforce editions",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      }
-    }
-    </script>
-
-  <!-- ── Home Page: BreadcrumbList ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ardira.com"
-        }
-      ]
-    }
-    </script>
-
-  <!-- ── Team Page: AboutPage ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "Ardira Team | Enterprise Salesforce Experts",
-      "description": "Meet Ardira's leadership team with 50+ years of combined Salesforce expertise. Based in USA and India, we deliver enterprise-grade solutions.",
-      "url": "https://ardira.com/team",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      },
-      "isPartOf": {
+    <!-- ── Global: WebSite ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Ardira",
-        "url": "https://ardira.com"
-      },
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Ardira",
         "url": "https://ardira.com",
-        "employee": [
+        "description": "Ardira builds 100% Salesforce-native applications with no integrations, ensuring data security and native performance.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        }
+      }
+    </script>
+
+    <!-- ── Home Page: SoftwareApplication — SurveyVista ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SurveyVista",
+        "description": "The 100% Salesforce-native Customer Intelligence & Action Platform. Every response writes directly to your CRM — AI triggers automated workflows instantly, preventing churn and surfacing revenue.",
+        "url": "https://surveyvista.com/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": "Surveys, forms & assessments unified, AI churn detection & intervention, Workflows fire on response receipt, Enriches Salesforce records instantly, 5-star rated on AppExchange, Trusted by 450+ organizations",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        }
+      }
+    </script>
+
+    <!-- ── Home Page: SoftwareApplication — FormVista ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FormVista",
+        "description": "Native Salesforce business forms that write data directly into your CRM — no third-party tools, no integration overhead, no data leaving your org. Beautiful, branded forms connected to any Salesforce object.",
+        "url": "https://surveyvista.com/products/form-vista-business-forms/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": "Writes to any Salesforce object, Branded mobile-responsive design, Conditional logic & smart branching, Pre-fill from Salesforce record data, Workflow triggers on submission, Zero integration tax",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        }
+      }
+    </script>
+
+    <!-- ── Home Page: SoftwareApplication — ComplianceVista ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ComplianceVista",
+        "description": "Native Salesforce assessments, risk scoring, and compliance workflows. Signals detected in real-time — alerts fire instantly, evidence preserved automatically, regulators never catch you unprepared.",
+        "url": "https://compliancevista.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": "Real-time compliance risk detection, Automated evidence preservation, Regulatory response workflows, Complete audit trail in one system, Risk scoring with full CRM context, Inherits Salesforce security",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        }
+      }
+    </script>
+
+    <!-- ── Home Page: SoftwareApplication — AgentVista ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AgentVista",
+        "description": "Deploy intelligent AI agents that operate natively within Salesforce — with full CRM context, executing automated actions, delivering results without ever leaving your secure org environment.",
+        "url": "https://agentsvista.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": "AI agents with full CRM context, Executes actions directly in Salesforce, No external AI data exposure, Agentforce native integration, Automated multi-step workflows, Inherits your org's security model",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        }
+      }
+    </script>
+
+    <!-- ── Home Page: SoftwareApplication — RelationshipVista ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "RelationshipVista",
+        "description": "Visualize, analyze and navigate complex Salesforce account relationships and hierarchies — natively. See parent-child structures and account networks without ever leaving your CRM.",
+        "url": "https://relationshipvista.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": "Interactive hierarchy visualization, Any Salesforce object or relationship, Click-through to records in context, Configurable depth & display options, No external tools or exports needed, Works with all Salesforce editions",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        }
+      }
+    </script>
+
+    <!-- ── Home Page: BreadcrumbList ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
           {
-            "@type": "Person",
-            "name": "Rajesh Unadkat",
-            "jobTitle": "Founder and CEO",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Ardira"
-            },
-            "image": "https://ardira.com/assets/ArdiraMind/rajesh.webp"
-          },
-          {
-            "@type": "Person",
-            "name": "Reddy Rachamallu",
-            "jobTitle": "Chief Architect",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Ardira"
-            },
-            "image": "https://ardira.com/assets/ArdiraMind/Reddy.webp"
-          },
-          {
-            "@type": "Person",
-            "name": "Hitesh Malkan",
-            "jobTitle": "General Manager - India Operations",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Ardira"
-            },
-            "image": "https://ardira.com/assets/ArdiraMind/hitesh.webp"
-          },
-          {
-            "@type": "Person",
-            "name": "Brijesh Popat",
-            "jobTitle": "VP of Software Services",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Ardira"
-            },
-            "image": "https://ardira.com/assets/ArdiraMind/brijesh.webp"
-          },
-          {
-            "@type": "Person",
-            "name": "Quinn Regan",
-            "jobTitle": "Senior Account Executive",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Ardira"
-            },
-            "image": "https://ardira.com/assets/ArdiraMind/quinn.webp"
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ardira.com"
           }
         ]
       }
-    }
     </script>
 
-  <!-- ── Team Page: BreadcrumbList ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ardira.com"
+    <!-- ── Team Page: AboutPage ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "Ardira Team | Enterprise Salesforce Experts",
+        "description": "Meet Ardira's leadership team with 50+ years of combined Salesforce expertise. Based in USA and India, we deliver enterprise-grade solutions.",
+        "url": "https://ardira.com/team",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
         },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Team",
-          "item": "https://ardira.com/team"
-        }
-      ]
-    }
-    </script>
-
-  <!-- ── Partner Hub: WebPage ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Ardira Partner Hub",
-      "description": "Join the Ardira Partner Hub. Collaborate with us to deliver 100% native Salesforce solutions. Referral, reseller, and technology partnership programs available.",
-      "url": "https://ardira.com/partner-hub",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      },
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Ardira",
-        "url": "https://ardira.com"
-      },
-      "significantLink": [
-        "https://ardira.com/partner-hub#partner-form"
-      ]
-    }
-    </script>
-
-  <!-- ── Partner Hub: BreadcrumbList ── -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ardira.com"
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Ardira",
+          "url": "https://ardira.com"
         },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Partner Hub",
-          "item": "https://ardira.com/partner-hub"
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com",
+          "employee": [
+            {
+              "@type": "Person",
+              "name": "Rajesh Unadkat",
+              "jobTitle": "Founder and CEO",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Ardira"
+              },
+              "image": "https://ardira.com/assets/ArdiraMind/rajesh.webp"
+            },
+            {
+              "@type": "Person",
+              "name": "Reddy Rachamallu",
+              "jobTitle": "Chief Architect",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Ardira"
+              },
+              "image": "https://ardira.com/assets/ArdiraMind/Reddy.webp"
+            },
+            {
+              "@type": "Person",
+              "name": "Hitesh Malkan",
+              "jobTitle": "General Manager - India Operations",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Ardira"
+              },
+              "image": "https://ardira.com/assets/ArdiraMind/hitesh.webp"
+            },
+            {
+              "@type": "Person",
+              "name": "Brijesh Popat",
+              "jobTitle": "VP of Software Services",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Ardira"
+              },
+              "image": "https://ardira.com/assets/ArdiraMind/brijesh.webp"
+            },
+            {
+              "@type": "Person",
+              "name": "Quinn Regan",
+              "jobTitle": "Senior Account Executive",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Ardira"
+              },
+              "image": "https://ardira.com/assets/ArdiraMind/quinn.webp"
+            }
+          ]
         }
-      ]
-    }
+      }
     </script>
 
-</head>
+    <!-- ── Team Page: BreadcrumbList ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ardira.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Team",
+            "item": "https://ardira.com/team"
+          }
+        ]
+      }
+    </script>
 
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL38DRB6" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+    <!-- ── Partner Hub: WebPage ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Ardira Partner Hub",
+        "description": "Join the Ardira Partner Hub. Collaborate with us to deliver 100% native Salesforce solutions. Referral, reseller, and technology partnership programs available.",
+        "url": "https://ardira.com/partner-hub",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Ardira",
+          "url": "https://ardira.com"
+        },
+        "significantLink": ["https://ardira.com/partner-hub#partner-form"]
+      }
+    </script>
 
+    <!-- ── Partner Hub: BreadcrumbList ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ardira.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Partner Hub",
+            "item": "https://ardira.com/partner-hub"
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KL38DRB6"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

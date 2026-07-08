@@ -134,14 +134,14 @@ function App() {
         >
           <Navbar />
           <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-use" element={<TermsOfService />} />
-            <Route path="/partner-hub" element={<PartnerHub />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-use" element={<TermsOfService />} />
+              <Route path="/partner-hub" element={<PartnerHub />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </Suspense>
           <Footer />
         </div>

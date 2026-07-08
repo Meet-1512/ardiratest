@@ -33,7 +33,9 @@ html body[data-scroll-locked] {
   transform: none !important;
   border-radius: 0 8px 8px 0 !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-  transition: width 0.25s ease, box-shadow 0.2s ease !important;
+  transition:
+    width 0.25s ease,
+    box-shadow 0.2s ease !important;
 }
 
 /* Ensure the iframe stays aligned to the left inside the collapsed/expanded container.

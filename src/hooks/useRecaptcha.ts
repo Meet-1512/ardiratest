@@ -1,10 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 // Declare grecaptcha on window type to avoid TypeScript errors
 declare global {
   interface Window {
     grecaptcha: {
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      execute: (
+        siteKey: string,
+        options: { action: string },
+      ) => Promise<string>;
       render: (elementId: string, options: unknown) => void;
       reset: () => void;
       getResponse: () => string;
@@ -22,7 +25,9 @@ export const useRecaptcha = () => {
 
   const loadRecaptcha = useCallback(() => {
     if (!RECAPTCHA_SITE_KEY) {
-      console.warn("reCAPTCHA site key is not configured. Set RECAPTCHA_SITE_KEY in your environment.");
+      console.warn(
+        "reCAPTCHA site key is not configured. Set RECAPTCHA_SITE_KEY in your environment.",
+      );
       return;
     }
 
@@ -32,8 +37,14 @@ export const useRecaptcha = () => {
     }
 
     // Guard against concurrent injection calls
-    if ((window as unknown as { ___recaptcha_injected?: boolean }).___recaptcha_injected) return;
-    (window as unknown as { ___recaptcha_injected?: boolean }).___recaptcha_injected = true;
+    if (
+      (window as unknown as { ___recaptcha_injected?: boolean })
+        .___recaptcha_injected
+    )
+      return;
+    (
+      window as unknown as { ___recaptcha_injected?: boolean }
+    ).___recaptcha_injected = true;
 
     const script = document.createElement("script");
     script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;

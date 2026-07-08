@@ -41,36 +41,34 @@ function TrustedSection() {
             className="logo-track flex items-center animate-marquee py-2 w-max"
             style={{ animationDuration: "140s" }}
           >
-            {[...partners, ...partners].map(
-              (logo, idx) => (
-                <div
-                  key={idx}
-                  className="logo-item"
+            {[...partners, ...partners].map((logo, idx) => (
+              <div
+                key={idx}
+                className="logo-item"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 40px",
+                  flexShrink: 0,
+                  height: "64px",
+                }}
+              >
+                <img
+                  src={logo}
+                  alt={`Trusted Enterprise ${idx}`}
+                  loading="lazy"
+                  decoding="async"
+                  width={140}
+                  height={64}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 40px",
-                    flexShrink: 0,
-                    height: "64px",
+                    maxHeight: "100%",
+                    maxWidth: 140,
+                    objectFit: "contain",
                   }}
-                >
-                  <img
-                    src={logo}
-                    alt={`Trusted Enterprise ${idx}`}
-                    loading="lazy"
-                    decoding="async"
-                    width={140}
-                    height={64}
-                    style={{
-                      maxHeight: "100%",
-                      maxWidth: 140,
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
-              ),
-            )}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

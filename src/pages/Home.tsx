@@ -8,7 +8,6 @@ const Features = lazy(() => import("../components/Features"));
 const Contact = lazy(() => import("../components/Contact"));
 import PageSeo from "../components/PageSeo";
 
-
 function Home() {
   const location = useLocation();
 
@@ -40,7 +39,6 @@ function Home() {
         keywords="Salesforce native apps, Salesforce applications, SurveyVista, RelationshipVista, native Salesforce"
         ogImage="/ArdiraLogo.webp"
       />
-
 
       <Hero />
       <Suspense fallback={null}>

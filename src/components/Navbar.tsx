@@ -12,33 +12,36 @@ function Navbar() {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  const handleLinkClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    const href = e.currentTarget.getAttribute("href");
-    if (href && href.includes("#")) {
-      e.preventDefault();
-      const hash = href.split("#")[1];
-      const targetPath = href.split("#")[0] || "/";
+  const handleLinkClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      const href = e.currentTarget.getAttribute("href");
+      if (href && href.includes("#")) {
+        e.preventDefault();
+        const hash = href.split("#")[1];
+        const targetPath = href.split("#")[0] || "/";
 
-      if (
-        location.pathname === targetPath ||
-        (location.pathname === "/" && targetPath === "/")
-      ) {
-        const element = document.getElementById(hash);
-        if (element) {
-          const offset = 70;
-          const elementPosition =
-            element.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: elementPosition, behavior: "smooth" });
+        if (
+          location.pathname === targetPath ||
+          (location.pathname === "/" && targetPath === "/")
+        ) {
+          const element = document.getElementById(hash);
+          if (element) {
+            const offset = 70;
+            const elementPosition =
+              element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+          }
+        } else {
+          // Navigate cleanly to the target path without a hash in the URL string
+          navigate(targetPath, { state: { scrollTo: hash } });
         }
       } else {
-        // Navigate cleanly to the target path without a hash in the URL string
-        navigate(targetPath, { state: { scrollTo: hash } });
+        window.scrollTo(0, 0);
       }
-    } else {
-      window.scrollTo(0, 0);
-    }
-    setIsMenuOpen(false);
-  }, [location.pathname, navigate]);
+      setIsMenuOpen(false);
+    },
+    [location.pathname, navigate],
+  );
 
   return (
     <>
@@ -67,7 +70,14 @@ function Navbar() {
           }}
         >
           <Link to="/" onClick={handleLinkClick} aria-label="Ardira Home">
-            <img src={ArdiraLogo} alt="Ardira Logo" className="nav-logo" width={224} height={164} decoding="async" />
+            <img
+              src={ArdiraLogo}
+              alt="Ardira Logo"
+              className="nav-logo"
+              width={224}
+              height={164}
+              decoding="async"
+            />
           </Link>
           <ul className="nav-menu">
             <li className="nav-hide-mobile">
@@ -166,7 +176,7 @@ function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div 
+        <div
           className="mobile-menu-overlay open"
           role="navigation"
           aria-label="Mobile navigation menu"

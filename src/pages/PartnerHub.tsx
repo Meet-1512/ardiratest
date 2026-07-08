@@ -265,8 +265,14 @@ export default function PartnerHub() {
     setSubmitError(null);
 
     if (!FUNCTIONS_URL || !ANON_KEY || !SITE_ID) {
-      console.error("❌ Missing required env vars:", { FUNCTIONS_URL, ANON_KEY, SITE_ID });
-      setSubmitError("Configuration error. Please contact support@ardira.com directly.");
+      console.error("❌ Missing required env vars:", {
+        FUNCTIONS_URL,
+        ANON_KEY,
+        SITE_ID,
+      });
+      setSubmitError(
+        "Configuration error. Please contact support@ardira.com directly.",
+      );
       setIsSubmitting(false);
       return;
     }
@@ -321,7 +327,9 @@ export default function PartnerHub() {
         }
 
         throw new Error(
-          (result.message as string) || (result.error as string) || "Failed to submit application",
+          (result.message as string) ||
+            (result.error as string) ||
+            "Failed to submit application",
         );
       }
 
@@ -439,8 +447,11 @@ export default function PartnerHub() {
                   >
                     <img
                       loading="lazy"
+                      decoding="async"
                       src={p.logo}
                       alt={p.name}
+                      width={120}
+                      height={48}
                       className="max-h-full max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity"
                     />
                   </div>
@@ -580,7 +591,10 @@ export default function PartnerHub() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="partner-fullName" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label
+                        htmlFor="partner-fullName"
+                        className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                      >
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -603,10 +617,11 @@ export default function PartnerHub() {
                         }}
                         onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.fullName
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-slate-200 focus:ring-emerald-500"
-                          }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
+                          errors.fullName
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-slate-200 focus:ring-emerald-500"
+                        }`}
                         placeholder="Full Name"
                       />
                       {errors.fullName && (
@@ -616,7 +631,10 @@ export default function PartnerHub() {
                       )}
                     </div>
                     <div>
-                      <label htmlFor="partner-company" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label
+                        htmlFor="partner-company"
+                        className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                      >
                         Company Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -636,10 +654,11 @@ export default function PartnerHub() {
                         }}
                         onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.company
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-slate-200 focus:ring-emerald-500"
-                          }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
+                          errors.company
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-slate-200 focus:ring-emerald-500"
+                        }`}
                         placeholder="Company Name"
                       />
                       {errors.company && (
@@ -652,7 +671,10 @@ export default function PartnerHub() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="partner-email" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label
+                        htmlFor="partner-email"
+                        className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                      >
                         Business Email <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -672,10 +694,11 @@ export default function PartnerHub() {
                         }}
                         onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.email
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-slate-200 focus:ring-emerald-500"
-                          }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
+                          errors.email
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-slate-200 focus:ring-emerald-500"
+                        }`}
                         placeholder="Business Email"
                       />
                       {errors.email && (
@@ -685,7 +708,10 @@ export default function PartnerHub() {
                       )}
                     </div>
                     <div>
-                      <label htmlFor="partner-phone" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label
+                        htmlFor="partner-phone"
+                        className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                      >
                         Phone Number <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -708,10 +734,11 @@ export default function PartnerHub() {
                         }}
                         onFocus={loadRecaptcha}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.phone
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-slate-200 focus:ring-emerald-500"
-                          }`}
+                        className={`w-full px-4 py-2.5 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
+                          errors.phone
+                            ? "border-red-500 focus:ring-red-500"
+                            : "border-slate-200 focus:ring-emerald-500"
+                        }`}
                         placeholder="e.g., 1234567890"
                       />
                       {errors.phone && (
@@ -724,7 +751,10 @@ export default function PartnerHub() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="partner-country" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label
+                        htmlFor="partner-country"
+                        className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                      >
                         Country / Region <span className="text-red-500">*</span>
                       </label>
                       <Select
@@ -746,10 +776,11 @@ export default function PartnerHub() {
                           onBlur={() =>
                             validateSequenceUpTo("country", formData)
                           }
-                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.country
-                            ? "border-red-500 focus:ring-red-500"
-                            : "border-slate-200 focus:ring-emerald-500"
-                            }`}
+                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
+                            errors.country
+                              ? "border-red-500 focus:ring-red-500"
+                              : "border-slate-200 focus:ring-emerald-500"
+                          }`}
                         >
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
@@ -770,7 +801,10 @@ export default function PartnerHub() {
                       )}
                     </div>
                     <div>
-                      <label htmlFor="partner-partnerType" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                      <label
+                        htmlFor="partner-partnerType"
+                        className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                      >
                         Partnership Type <span className="text-red-500">*</span>
                       </label>
                       <Select
@@ -795,10 +829,11 @@ export default function PartnerHub() {
                           onBlur={() =>
                             validateSequenceUpTo("partnerType", formData)
                           }
-                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${errors.partnerType
-                            ? "border-red-500 focus:ring-red-500"
-                            : "border-slate-200 focus:ring-emerald-500"
-                            }`}
+                          className={`w-full px-4 py-2.5 h-[42px] rounded-xl border bg-white text-sm text-left focus:outline-none focus:ring-2 focus:border-transparent transition-all ${
+                            errors.partnerType
+                              ? "border-red-500 focus:ring-red-500"
+                              : "border-slate-200 focus:ring-emerald-500"
+                          }`}
                         >
                           <SelectValue placeholder="Partnership Type" />
                         </SelectTrigger>
@@ -817,7 +852,10 @@ export default function PartnerHub() {
                   </div>
 
                   <div>
-                    <label htmlFor="partner-message" className="block text-sm font-semibold text-[#0f172a] mb-1.5">
+                    <label
+                      htmlFor="partner-message"
+                      className="block text-sm font-semibold text-[#0f172a] mb-1.5"
+                    >
                       Tell us about your business{" "}
                       <span className="text-red-500">*</span>
                     </label>
@@ -838,10 +876,11 @@ export default function PartnerHub() {
                       }}
                       onFocus={loadRecaptcha}
                       onBlur={handleBlur}
-                      className={`w-full px-4 py-3 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none ${errors.message
-                        ? "border-red-500 focus:ring-red-500"
-                        : "border-slate-200 focus:ring-emerald-500"
-                        }`}
+                      className={`w-full px-4 py-3 rounded-xl border bg-white text-sm focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none ${
+                        errors.message
+                          ? "border-red-500 focus:ring-red-500"
+                          : "border-slate-200 focus:ring-emerald-500"
+                      }`}
                       placeholder="Tell us about your business"
                     />
                     {errors.message && (

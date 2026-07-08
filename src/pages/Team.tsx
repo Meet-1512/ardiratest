@@ -169,8 +169,11 @@ export default function About() {
             >
               <img
                 loading="eager"
+                decoding="async"
                 src={ardiraTeam}
                 alt="The Ardira Team"
+                width={1200}
+                height={800}
                 className="w-full rounded-2xl shadow-lg border border-slate-100"
               />
             </motion.div>
@@ -275,8 +278,11 @@ export default function About() {
                 {member.image && (
                   <img
                     loading="lazy"
+                    decoding="async"
                     src={member.image}
                     alt={member.name}
+                    width={240}
+                    height={270}
                     className={`w-50 h-54 object-cover rounded-lg mb-5 shadow-sm transition-all duration-300 group-hover:shadow-lg`}
                   />
                 )}
@@ -323,8 +329,11 @@ export default function About() {
               >
                 <img
                   loading="lazy"
+                  decoding="async"
                   src={member.image}
                   alt={member.name}
+                  width={240}
+                  height={270}
                   className={`w-50 h-54 object-cover rounded-lg mb-5 shadow-sm transition-all duration-300 group-hover:shadow-lg`}
                 />
                 <h3 className="text-lg md:text-xl font-semibold font-display text-[#0f172a] mb-2">

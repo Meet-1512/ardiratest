@@ -1,4 +1,11 @@
-import { useState, useRef, useEffect, ChangeEvent, FormEvent, memo } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  ChangeEvent,
+  FormEvent,
+  memo,
+} from "react";
 import { Link } from "react-router-dom";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { RecaptchaBadge } from "@/components/RecaptchaBadge";
@@ -91,7 +98,7 @@ function Contact() {
           observer.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "200px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -252,8 +259,14 @@ function Contact() {
     setSubmitError(null);
 
     if (!FUNCTIONS_URL || !ANON_KEY || !SITE_ID) {
-      console.error("❌ Missing required env vars:", { FUNCTIONS_URL, ANON_KEY, SITE_ID });
-      setSubmitError("Configuration error. Please contact support@ardira.com directly.");
+      console.error("❌ Missing required env vars:", {
+        FUNCTIONS_URL,
+        ANON_KEY,
+        SITE_ID,
+      });
+      setSubmitError(
+        "Configuration error. Please contact support@ardira.com directly.",
+      );
       setIsSubmitting(false);
       return;
     }
@@ -308,7 +321,9 @@ function Contact() {
         }
 
         throw new Error(
-          (result.message as string) || (result.error as string) || "Failed to send message",
+          (result.message as string) ||
+            (result.error as string) ||
+            "Failed to send message",
         );
       }
 
