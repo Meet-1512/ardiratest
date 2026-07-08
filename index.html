@@ -49,8 +49,6 @@
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.google.com" />
     <link rel="dns-prefetch" href="https://www.gstatic.com" />
-    <!-- Preload main module to speed initial parsing and execution -->
-    <link rel="modulepreload" href="/src/main.tsx">
     <link
       rel="preload"
       href="/fonts/Inter-300-400-500-600-700.woff2"
@@ -73,9 +71,18 @@
       crossorigin
     />
     <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
-    <!-- Preload primary logo used in hero/navbar to improve LCP -->
-    <link rel="preload" href="/ArdiraLogo.webp" as="image" type="image/webp">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Critical, minimal inline CSS for above-the-fold (hero + nav) to improve FCP/LCP -->
+    <style>
+      :root{--primary-green:#39b44a;--navy:#1a2b3c}
+      body{background:#fff;color:var(--navy);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+      .nav-logo{height:90px;width:auto;display:block}
+      @media(max-width:768px){.nav-logo{height:52px!important}}
+      .hero-section{position:relative;overflow:hidden;padding-top:60px;padding-bottom:60px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f0fdf4 0%,#fff 50%,#ecfdf5 100%);min-height:320px}
+      .hero-heading{margin:16px 0;color:var(--navy);font-weight:800;line-height:1.3;letter-spacing:-0.02em;font-size:clamp(32px,5vw,56px)}
+      .hero-paragraph{font-size:16px;color:#6b7280;max-width:700px;margin:16px auto 32px;line-height:1.6}
+      .hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--primary-green);background:rgba(57,180,74,0.1);padding:10px 20px;border-radius:20px}
+    </style>
     <meta
       name="description"
       content="Ardira builds 100% Salesforce-native applications with no integrations and no data leaving your org."
