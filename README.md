@@ -126,7 +126,7 @@ When you change a component, look for where it is imported in `src/pages/` so yo
 
 Important rules:
 - Do NOT put the secret reCAPTCHA key in any `VITE_` variable. Secrets must stay on the server.
-- The client only uses `VITE_RECAPTCHA_SITE_KEY` (safe to be public).
+- The client only uses `RECAPTCHA_SITE_KEY` (safe to be public).
 
 Debugging form 403 errors (easy steps):
 - Ensure the browser sends `recaptchaToken` in the request body.
@@ -180,7 +180,7 @@ Quick checklist to improve speed:
 ---
 
 ## Environment variables (what each one does)
-- `VITE_RECAPTCHA_SITE_KEY` — public reCAPTCHA site key for the browser.
+- `RECAPTCHA_SITE_KEY` — public reCAPTCHA site key for the browser.
 - `VITE_LEAD_SUBMIT_URL` — where the client sends form data (edge function URL).
 - `VITE_APP_ENV` — indicates environment (production vs staging). Used to control indexing.
 
@@ -291,7 +291,7 @@ If you want this file shorter or want a printable checklist version, tell me and
 
 ### Environment variables
 - `.env` exposes (client-safe) variables prefixed by `VITE_`.
-  - `VITE_RECAPTCHA_SITE_KEY`: public reCAPTCHA site key used in `useRecaptcha` hook
+  - `RECAPTCHA_SITE_KEY`: public reCAPTCHA site key used in `useRecaptcha` hook
   - `VITE_LEAD_SUBMIT_URL`: full URL to lead submission edge function
   - `VITE_SITE_ID`: site identifier used in payloads
   - `VITE_APP_ENV`: determines production vs non-production behavior in `RobotsManager`
