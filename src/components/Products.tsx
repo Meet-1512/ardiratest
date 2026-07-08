@@ -474,7 +474,7 @@ function Products() {
                   style={{ animation: "fadeIn 0.4s ease", flex: 1 }}
                 >
                   <img
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                     src={products[activeTab].image}
                     alt={productMeta[activeTab].name}

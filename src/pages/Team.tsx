@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Users, Globe, Award, Zap } from "lucide-react";
 import ContactCta from "@/components/ContactCta";
@@ -95,6 +96,11 @@ const advisoryBoard = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    const img = new Image();
+    img.src = ardiraTeam;
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-white text-[#0f172a] font-sans"
