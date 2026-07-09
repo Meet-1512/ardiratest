@@ -1,5 +1,14 @@
-/https://www.ardira.com/* https://ardira.com/:splat 301!
+# Redirect all www traffic (http and https) to the non-www HTTPS host
+https://www.ardira.com/* https://ardira.com/:splat 301!
 http://www.ardira.com/* https://ardira.com/:splat 301!
+www.ardira.com/* https://ardira.com/:splat 301!
+
+# Redirect any http non-www to https non-www
+http://ardira.com/* https://ardira.com/:splat 301!
+
+# Static asset passthroughs
 /robots.txt    /robots.txt   200
 /sitemap.xml   /sitemap.xml  200
+
+# SPA fallback
 /*    /index.html   200
