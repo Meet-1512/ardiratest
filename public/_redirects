@@ -1,4 +1,5 @@
-https://www.ardira.com/* https://ardira.com/:splat 301!
+/https://www.ardira.com/* https://ardira.com/:splat 301!
+http://www.ardira.com/* https://ardira.com/:splat 301!
 /robots.txt    /robots.txt   200
 /sitemap.xml   /sitemap.xml  200
 /*    /index.html   200
